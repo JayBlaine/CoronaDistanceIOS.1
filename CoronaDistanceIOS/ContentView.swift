@@ -84,6 +84,7 @@ struct ContentView: View {
     @ObservedObject var detector = BeaconDetector()
     @State var UUIDReady: Bool = false
  
+    var body: some View {
         TabView(selection: $selection){
             
             //First Page Section
