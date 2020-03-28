@@ -48,6 +48,15 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager?.startMonitoring(for: beaconRegion)
         locationManager?.startRangingBeacons(satisfying: constraint)
     }
+    
+    func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
+        <#code#>
+    }
+    
+    func update(distance: CLProximity) {
+        lastDistance = distance
+        didChange.send(())
+    }
 }
 
 
