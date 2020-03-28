@@ -3,6 +3,7 @@
 //  CoronaDistanceIOS
 //
 //  Created by Jarrod Ragsdale on 3/28/20.
+//	Edited by Patrick Valadez
 //  Copyright © 2020 Group. All rights reserved.
 //
 
@@ -45,13 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: CLLocationManagerDelegate
 extension AppDelegate: CLLocationManagerDelegate {
 //prompts the notification based on action "didEnterRegion"
+//change this to prompt on global variable change for beacon detection
 func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLBeaconRegion)
 		{
 			guard region is CLBeaconRegion else { return }
 			
 			let content = UNMutableNotificationContent()
-			content.title = "Oops I'm too close"
-			content.body = "Get away from me now! Do you want to die or something?"
+			content.title = "Oops"
+			content.body = "You're too close to another person "
 			content.sound = .default
 			
 			let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)

@@ -15,6 +15,14 @@ import Combine
 //var locationManager: CLLocationManager!
 var iBeaconNear = false
    
+/*********
+ MAYBE CHANGE
+var didChange = PassthroughSubject<Void, Never>()  to  var didChange  = ObservableObjectPublisher()
+and
+didChange.send() to self.didChange.send()
+ *********/
+
+
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     var didChange = PassthroughSubject<Void, Never>()
     var locationManager: CLLocationManager?
@@ -61,7 +69,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func update(distance: CLProximity) {
         lastDistance = distance
-        didChange.send(())
+        didChange.send()
     }
 }
 
