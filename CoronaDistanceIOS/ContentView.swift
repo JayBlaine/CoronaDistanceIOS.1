@@ -14,7 +14,17 @@ import Combine
 
 //var locationManager: CLLocationManager!
 var iBeaconNear = false
+/*
+//Needed to prompt user for notifications 
 
+let center = UNUserNotificationCenter.current()
+center.requestAuthorization(options: [.alert, .sound, .badge, .provisional]) { granted, error in
+    
+    if let error = error {
+        // Handle the error here.
+		print(error.localizedDescription)
+    }
+*/   
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     var didChange = PassthroughSubject<Void, Never>()
     var locationManager: CLLocationManager?
@@ -65,23 +75,33 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 }
 
-
 /*
 if detector.lastDistance == .near || detector.lastDistance == .immediate
 {
+//prompts the notification 
+			let content = UNMutableNotificationContent()
+			content.title = "Oops I'm too close"
+			content.body = "Get away from me now! Do you want to die or something?"
+			content.sound = .default
+			
+			let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+		
+*/
 
-}   */
 
 
 
 struct ContentView: View {
+    
     @State private var selection = 2
     @State private var searching = false
     @State var numbers: String = ""
     @State var major: String = ""
     @State var minor: String = ""
     @ObservedObject var detector = BeaconDetector()
-    
+    @State var UUIDReady: Bool = false
+ 
     var body: some View {
         TabView(selection: $selection){
             
@@ -109,7 +129,15 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
+                        
                         self.searching.toggle()
+                        
+                        if ((self.numbers == self.major) && (self.major == self.minor)) {
+                            self.UUIDReady = false
+                        } else if ( self.numbers != "" ) {
+                            self.UUIDReady = true
+                        }
+                        
                         }) {
                             if !searching {
                                 HStack {
@@ -214,7 +242,7 @@ struct ContentView: View {
                     .cornerRadius(20)
                        
                     //Asks User for Major
-                    Text("Enter a digit between 1 - 65,000")
+                    Text("A Major consists of a digit between 1 - 65,000")
                         .font(.footnote)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -230,7 +258,7 @@ struct ContentView: View {
                     .cornerRadius(20)
                     
                     //Asks user for Minor
-                    Text("Enter a digit between 1 - 65,000")
+                    Text("A Minor consists of a digit between 1 - 65,000")
                         .font(.footnote)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
