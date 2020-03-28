@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var selection = 0
+    @State private var searching = false
  
     var body: some View {
         TabView(selection: $selection){
@@ -21,9 +22,21 @@ struct ContentView: View {
                 
                 Spacer()
                 
+                Button(action: {
+                    //todo
+                    }) {
+                     
+                        HStack {
+                            Text("Start Searching ")
+                            Image(systemName: "dot.radiowaves.left.and.right")
+                        }
+                        .foregroundColor(Color.black)
+                        .padding(.all, 30)
+                        .background(Color.green)
+                        .cornerRadius(30)
+                }
                 
-                
-                
+                Spacer()
                 
                 
                 
