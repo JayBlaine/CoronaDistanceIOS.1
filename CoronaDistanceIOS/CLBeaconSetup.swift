@@ -46,6 +46,15 @@ func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLB
     } else {
         updateDistance(.unknown)
     }
+	/*
+	let content = UNMutableNotificationContent()
+		content.title = "Forget Me Not"
+		content.body = "Are you forgetting something?"
+		content.sound = .default()
+    
+	let request = UNNotificationRequest(identifier: "ForgetMeNot", content: content, trigger: nil)
+	UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+	*/
 }
 
 func updateDistance(_ distance: CLProximity) {
