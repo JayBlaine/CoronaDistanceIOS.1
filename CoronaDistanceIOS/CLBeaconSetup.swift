@@ -45,5 +45,3 @@ func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLB
     }
 }
 
-
-}
