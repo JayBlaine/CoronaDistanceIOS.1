@@ -9,8 +9,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection = 0
+    @State private var selection = 2
     @State private var searching = false
+    @State var numbers: String = ""
+    @State var major: String = ""
+    @State var minor: String = ""
  
     var body: some View {
         TabView(selection: $selection){
@@ -99,9 +102,83 @@ struct ContentView: View {
                 .tag(1)
         
                 //Third Page Section
+            ZStack {
+                
+                Rectangle()
+                    .foregroundColor(.black)
+                    .edgesIgnoringSafeArea(.all)
+                
+                Rectangle()
+                    .foregroundColor(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 0.8))
+                    .rotationEffect(Angle(degrees: 45))
+                    .edgesIgnoringSafeArea(.all)
             
-                Text("hello")
-        
+                VStack {
+                    
+                    
+                    
+                        Text("UUID: \(numbers)")
+                            .foregroundColor(.white)
+                        Text("Major: \(major)")
+                            .foregroundColor(.white)
+                        Text("Minor: \(minor)")
+                            .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    //Asks User for UUID
+                    Text("A UUID consists of 8 digits/letters - 4 digits/letters - 4 digits/letters - 4 digits/letters - 12 digits/letters (no spaces)")
+                        .font(.footnote)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    HStack {
+                        Text("Enter a UUID:")
+                        TextField("ex. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", text: $numbers)
+                    }
+                    .padding()
+                    .font(.body)
+                    .foregroundColor(.white)
+                    .background(Color.gray)
+                    .cornerRadius(20)
+                       
+                    //Asks User for Major
+                    Text("Enter a digit between 1 - 65,000")
+                        .font(.footnote)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    HStack {
+                        Text("Enter a Major:")
+                        TextField("ex. xxxxx", text: $major)
+                    }
+                    .padding()
+                    .font(.body)
+                    .foregroundColor(.white)
+                    .background(Color.gray)
+                    .cornerRadius(20)
+                    
+                    //Asks user for Minor
+                    Text("Enter a digit between 1 - 65,000")
+                        .font(.footnote)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    HStack {
+                        Text("Enter a Minor:")
+                        TextField("ex. xxxxx", text: $minor)
+                    }
+                    .padding()
+                    .font(.body)
+                    .foregroundColor(.white)
+                    .background(Color.gray)
+                    .cornerRadius(20)
+                    
+                    Spacer()
+                    
+                }
+    
+            }
                 //Third Tab Section
                 .tabItem {
                     VStack {
