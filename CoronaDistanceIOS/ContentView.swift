@@ -94,9 +94,6 @@ struct ContentView: View {
     @State var minor: String = ""
     @ObservedObject var detector = BeaconDetector()
     @State var UUIDReady: Bool = false
-	//Needed to prompt user for notifications 
-    let center = UNUserNotificationCenter.current()
-    center.requestAuthorization(options: [.alert, .sound, .badge, .provisional]) { granted, error in}
 
     var body: some View {
         TabView(selection: $selection){
