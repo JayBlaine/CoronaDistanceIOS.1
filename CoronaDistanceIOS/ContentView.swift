@@ -67,10 +67,12 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 
 /*
-if detector.lastDistance == .near || detector.lastDistance == .immediate
-{
+if (searching == true) {
+    if ((detector.lastDistance == .near) || (detector.lastDistance == .immediate))
+    {
 
-}   */
+    }
+ }*/
 
 
 
