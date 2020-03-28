@@ -13,7 +13,7 @@ var locationManager: CLLocationManager!
 var iBeaconNear = false
 
 func viewDidLoad() {
-    super.viewDidLoad()
+    //super.viewDidLoad()
 
     locationManager = CLLocationManager()
     locationManager.delegate = self
