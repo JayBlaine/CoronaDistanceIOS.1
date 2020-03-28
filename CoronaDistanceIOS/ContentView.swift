@@ -237,6 +237,7 @@ struct ContentView: View {
                     HStack {
                         Text("Enter a UUID:")
                         TextField("ex. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", text: $numbers)
+                            .disableAutocorrection(true)
                     }
                     .padding()
                     .font(.body)
@@ -253,6 +254,7 @@ struct ContentView: View {
                     HStack {
                         Text("Enter a Major:")
                         TextField("ex. xxxxx", text: $major)
+                            .disableAutocorrection(true)
                     }
                     .padding()
                     .font(.body)
@@ -269,6 +271,7 @@ struct ContentView: View {
                     HStack {
                         Text("Enter a Minor:")
                         TextField("ex. xxxxx", text: $minor)
+                            .disableAutocorrection(true)
                     }
                     .padding()
                     .font(.body)
