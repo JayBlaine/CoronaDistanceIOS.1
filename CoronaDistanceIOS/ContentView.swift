@@ -77,8 +77,11 @@ if ((detector.lastDistance == .near)|| (detector.lastDistance == .immediate))
 			let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
 			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
 		
-*/
 
+
+    }
+ }
+ */
 
 
 
