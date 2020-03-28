@@ -23,19 +23,31 @@ struct ContentView: View {
                 Spacer()
                 
                 Button(action: {
-                    //todo
+                    self.searching.toggle()
                     }) {
-                     
-                        HStack {
-                            Text("Start Searching ")
-                            Image(systemName: "dot.radiowaves.left.and.right")
+                        if !searching {
+                            HStack {
+                                Text("Start Searching")
+                                Image(systemName: "dot.radiowaves.left.and.right")
+                            }
+                            .font(.title)
+                            .foregroundColor(Color.black)
+                            .padding(.all, 30)
+                            .padding(.vertical, 100)
+                            .background(Color.green)
+                            .cornerRadius(150)
+                        } else {
+                            HStack {
+                                Text("Stop Searching")
+                                Image(systemName: "dot.radiowaves.left.and.right")
+                            }
+                            .font(.title)
+                            .foregroundColor(Color.black)
+                            .padding(.all, 30)
+                            .padding(.vertical, 100)
+                            .background(Color.red)
+                            .cornerRadius(150)
                         }
-                        .font(.title)
-                        .foregroundColor(Color.black)
-                        .padding(.all, 30)
-                        .padding(.vertical, 100)
-                        .background(Color.green)
-                        .cornerRadius(150)
                 }
                 
                 Spacer()
