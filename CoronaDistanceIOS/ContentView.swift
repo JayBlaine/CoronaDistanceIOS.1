@@ -8,6 +8,32 @@
 
 import SwiftUI
 
+import CoreLocation
+import Combine
+
+
+//var locationManager: CLLocationManager!
+var iBeaconNear = false
+
+class BeaconDetector: NSObject, BindableObject, CLLocationManagerDelegate {
+    var didChange = PassthroughSubject<Void, Never>()
+    var locationManager: CLLocationManager?
+    var lastDistance = CLProximity.unknown
+    
+    override init() {
+        super.init()
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+    }
+}
+
+
+
+
+
+
 struct ContentView: View {
     @State private var selection = 0
  
