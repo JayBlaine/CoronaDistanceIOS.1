@@ -13,7 +13,7 @@ func viewDidLoad() {
     //super.viewDidLoad()
 
     locationManager = CLLocationManager()
-    locationManager.delegate = self
+    //locationManager.delegate = self
     locationManager.requestAlwaysAuthorization()
 }
 
