@@ -9,6 +9,8 @@
 import SwiftUI
 import CoreLocation
 
+protocol CLLocationManagerDelegate {}
+
 var locationManager: CLLocationManager!
 var iBeaconNear = false
 
@@ -64,3 +66,4 @@ func updateDistance(_ distance: CLProximity) {
         }
     
 }
+
