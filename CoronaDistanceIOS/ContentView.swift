@@ -15,7 +15,7 @@ import Combine
 //var locationManager: CLLocationManager!
 var iBeaconNear = false
 
-class BeaconDetector: NSObject, BindableObject, CLLocationManagerDelegate {
+class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     var didChange = PassthroughSubject<Void, Never>()
     var locationManager: CLLocationManager?
     var lastDistance = CLProximity.unknown
