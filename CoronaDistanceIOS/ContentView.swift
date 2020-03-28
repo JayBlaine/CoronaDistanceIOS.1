@@ -95,7 +95,7 @@ if ((detector.lastDistance == .near)|| (detector.lastDistance == .immediate))
 
 struct ContentView: View {
     
-    @State private var selection = 2
+    @State private var selection = 0
     @State private var searching = false
     @State var numbers: String = ""
     @State var major: String = ""
