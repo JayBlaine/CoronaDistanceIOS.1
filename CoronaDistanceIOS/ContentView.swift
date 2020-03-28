@@ -42,7 +42,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         let uuid = UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-A092377F6B7E5")!
         //Replace with either user input or random uuid generator, 5A$BCFCE PLACEHOLDER TODO
         //MAYBE MAKE !USER UUID
-        let constraint = CLBeaconIdentityConstraint(uuid: uuid, major: 123, minor: 456)
+        let constraint = CLBeaconIdentityConstraint(uuid: uuid)
         //Replace major/minor with user values, 123/456 PLACEHOLDER TODO
         //MAYBE MAKE !USER MAJOR/MINOR
         let beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: "Beacon")
