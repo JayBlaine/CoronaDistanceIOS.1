@@ -16,7 +16,14 @@ var locationManager: CLLocationManager!
 var iBeaconNear = false
 
 class BeaconDetector: NSObject, BindableObject, CLLocationManagerDelegate {
-
+    var didChange = PassthroughSubject<Void, Never>()
+    var locationManager: CLLocationManager?
+    var lastDistance = CLProximity.unknown
+    
+    overide init() {
+        
+    }
+}
 func viewDidLoad() {
     //super.viewDidLoad()
 
@@ -79,4 +86,3 @@ func updateDistance(_ distance: CLProximity) {
     
 }
 
-}
