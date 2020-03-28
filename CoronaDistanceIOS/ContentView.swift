@@ -76,6 +76,7 @@ struct ContentView: View {
     @State var numbers: String = ""
     @State var major: String = ""
     @State var minor: String = ""
+    @ObservedObject var detector = BeaconDetector()
  
     var body: some View {
         TabView(selection: $selection){
