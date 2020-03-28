@@ -46,11 +46,70 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct ContentView: View {
     @State private var selection = 0
+    @State private var searching = false
  
     var body: some View {
         TabView(selection: $selection){
-            Text("First Views")
-                .font(.title)
+            
+            //First Page Section
+            
+            ZStack {
+                
+                Rectangle()
+                    .foregroundColor(.black)
+                    .edgesIgnoringSafeArea(.all)
+            
+                Rectangle()
+                    .foregroundColor(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 0.8))
+                    .rotationEffect(Angle(degrees: 45))
+                    .edgesIgnoringSafeArea(.all)
+                    
+                
+                VStack {
+                
+                    Text("It's Corona Time")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .padding(.top, 10)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.searching.toggle()
+                        }) {
+                            if !searching {
+                                HStack {
+                                    Text("Start Searching")
+                                    Image(systemName: "dot.radiowaves.left.and.right")
+                                }
+                                .font(.title)
+                                .foregroundColor(Color.black)
+                                .padding(.all, 30)
+                                .padding(.vertical, 100)
+                                .background(Color.green)
+                                .cornerRadius(150)
+                                .shadow(radius: 30)
+                            } else {
+                                HStack {
+                                    Text("Stop Searching")
+                                    Image(systemName: "dot.radiowaves.left.and.right")
+                                }
+                                .font(.title)
+                                .foregroundColor(Color.black)
+                                .padding(.all, 30)
+                                .padding(.vertical, 100)
+                                .background(Color.red)
+                                .cornerRadius(150)
+                                .shadow(radius: 30)
+                            }
+                    }
+                    
+                    Spacer()
+                    
+                    
+                }
+                
+            }  //First Tab Section
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3.fill")
@@ -58,8 +117,15 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            Text("Second Views")
+            
+            //Second Page Section
+            
+            Text("News Incoming")
                 .font(.title)
+                
+                
+                
+                //Second Tab Section
                 .tabItem {
                     VStack {
                         Image(systemName: "staroflife")
