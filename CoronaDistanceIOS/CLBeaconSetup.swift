@@ -11,7 +11,7 @@ struct RSSItem
 // download xml from a server, parse xml to foundation object
 class FeedParser: NSObject, XMLParserDelegate
     {
-    public var rssItems: [RSSItem]= []
+    public var rssItems: [RSSItem] = []
     public var currentKey = ""
     public var currentTitle: String = ""
     {
