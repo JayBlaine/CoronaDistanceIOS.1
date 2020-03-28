@@ -10,6 +10,7 @@ import SwiftUI
 import CoreLocation
 
 var locationManager: CLLocationManager!
+var iBeaconNear = 0
 
 override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,3 +46,22 @@ func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLB
     }
 }
 
+func updateDistance(_ distance: CLProximity) {
+    UIView.animate(withDuration: 0.8) {
+        switch distance {
+        case .unknown:
+            return
+
+        case .far:
+            return
+
+        case .near:
+            iBeaconNear = 1
+
+        case .immediate:
+            return
+        @unknown default:
+            return
+        }
+    }
+}
