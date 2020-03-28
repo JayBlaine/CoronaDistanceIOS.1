@@ -97,8 +97,23 @@ struct ContentView: View {
                     }
                 }
                 .tag(1)
+        
+                //Third Page Section
+            
+                Text("hello")
+        
+                //Third Tab Section
+                .tabItem {
+                    VStack {
+                        Image(systemName: "lock.shield")
+                        Text("Settings")
+                    }
+                }
+                .tag(2)
         }
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
