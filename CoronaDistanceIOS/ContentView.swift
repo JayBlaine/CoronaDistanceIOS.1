@@ -71,11 +71,13 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 
 struct ContentView: View {
+    
     @State private var selection = 2
     @State private var searching = false
     @State var numbers: String = ""
     @State var major: String = ""
     @State var minor: String = ""
+    @State var UUIDReady: Bool = false
  
     var body: some View {
         TabView(selection: $selection){
@@ -104,7 +106,15 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
+                        
                         self.searching.toggle()
+                        
+                        if ((self.numbers == self.major) && (self.major == self.minor)) {
+                            self.UUIDReady = false
+                        } else if ( self.numbers != "" ) {
+                            self.UUIDReady = true
+                        }
+                        
                         }) {
                             if !searching {
                                 HStack {
@@ -209,7 +219,7 @@ struct ContentView: View {
                     .cornerRadius(20)
                        
                     //Asks User for Major
-                    Text("Enter a digit between 1 - 65,000")
+                    Text("A Major consists of a digit between 1 - 65,000")
                         .font(.footnote)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
@@ -225,7 +235,7 @@ struct ContentView: View {
                     .cornerRadius(20)
                     
                     //Asks user for Minor
-                    Text("Enter a digit between 1 - 65,000")
+                    Text("A Minor consists of a digit between 1 - 65,000")
                         .font(.footnote)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
