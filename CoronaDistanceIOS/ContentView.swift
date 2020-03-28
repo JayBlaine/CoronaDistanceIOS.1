@@ -14,49 +14,66 @@ struct ContentView: View {
  
     var body: some View {
         TabView(selection: $selection){
-            VStack {
             
-                Text("It's Corona Time")
-                    .font(.title)
-                    .padding(.top)
+            //First Page Section
+            
+            ZStack {
                 
-                Spacer()
+                Rectangle()
+                    .foregroundColor(.black)
+                    .edgesIgnoringSafeArea(.all)
+            
+                Rectangle()
+                    .foregroundColor(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 0.8))
+                    .rotationEffect(Angle(degrees: 45))
+                    .edgesIgnoringSafeArea(.all)
+                    
                 
-                Button(action: {
-                    self.searching.toggle()
-                    }) {
-                        if !searching {
-                            HStack {
-                                Text("Start Searching")
-                                Image(systemName: "dot.radiowaves.left.and.right")
+                VStack {
+                
+                    Text("It's Corona Time")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .padding(.top, 10)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.searching.toggle()
+                        }) {
+                            if !searching {
+                                HStack {
+                                    Text("Start Searching")
+                                    Image(systemName: "dot.radiowaves.left.and.right")
+                                }
+                                .font(.title)
+                                .foregroundColor(Color.black)
+                                .padding(.all, 30)
+                                .padding(.vertical, 100)
+                                .background(Color.green)
+                                .cornerRadius(150)
+                                .shadow(radius: 30)
+                            } else {
+                                HStack {
+                                    Text("Stop Searching")
+                                    Image(systemName: "dot.radiowaves.left.and.right")
+                                }
+                                .font(.title)
+                                .foregroundColor(Color.black)
+                                .padding(.all, 30)
+                                .padding(.vertical, 100)
+                                .background(Color.red)
+                                .cornerRadius(150)
+                                .shadow(radius: 30)
                             }
-                            .font(.title)
-                            .foregroundColor(Color.black)
-                            .padding(.all, 30)
-                            .padding(.vertical, 100)
-                            .background(Color.green)
-                            .cornerRadius(150)
-                        } else {
-                            HStack {
-                                Text("Stop Searching")
-                                Image(systemName: "dot.radiowaves.left.and.right")
-                            }
-                            .font(.title)
-                            .foregroundColor(Color.black)
-                            .padding(.all, 30)
-                            .padding(.vertical, 100)
-                            .background(Color.red)
-                            .cornerRadius(150)
-                        }
+                    }
+                    
+                    Spacer()
+                    
+                    
                 }
                 
-                Spacer()
-                
-                
-                
-                
-            }
-                
+            }  //First Tab Section
                 .tabItem {
                     VStack {
                         Image(systemName: "person.3.fill")
@@ -64,12 +81,15 @@ struct ContentView: View {
                     }
                 }
                 .tag(0)
-            Text("Second Views")
+            
+            //Second Page Section
+            
+            Text("News Incoming")
                 .font(.title)
                 
                 
                 
-                
+                //Second Tab Section
                 .tabItem {
                     VStack {
                         Image(systemName: "staroflife")
