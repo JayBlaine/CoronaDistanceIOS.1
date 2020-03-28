@@ -30,10 +30,12 @@ struct ContentView: View {
                             Text("Start Searching ")
                             Image(systemName: "dot.radiowaves.left.and.right")
                         }
+                        .font(.title)
                         .foregroundColor(Color.black)
                         .padding(.all, 30)
+                        .padding(.vertical, 100)
                         .background(Color.green)
-                        .cornerRadius(30)
+                        .cornerRadius(150)
                 }
                 
                 Spacer()
