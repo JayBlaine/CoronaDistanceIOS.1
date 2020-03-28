@@ -8,11 +8,14 @@
 
 import SwiftUI
 import CoreLocation
+import Combine
 
 protocol CLLocationManagerDelegate {}
 
 var locationManager: CLLocationManager!
 var iBeaconNear = false
+
+class BeaconDetector: NSObject, BindableObject, CLLocationManagerDelegate {
 
 func viewDidLoad() {
     //super.viewDidLoad()
@@ -76,3 +79,4 @@ func updateDistance(_ distance: CLProximity) {
     
 }
 
+}
