@@ -45,20 +45,5 @@ func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLB
     }
 }
 
-func updateDistance(_ distance: CLProximity) {
-    UIView.animate(withDuration: 0.8) {
-        switch distance {
-        case .unknown:
-            self.view.backgroundColor = UIColor.gray
 
-        case .far:
-            self.view.backgroundColor = UIColor.blue
-
-        case .near:
-            self.view.backgroundColor = UIColor.orange
-
-        case .immediate:
-            self.view.backgroundColor = UIColor.red
-        }
-    }
 }
