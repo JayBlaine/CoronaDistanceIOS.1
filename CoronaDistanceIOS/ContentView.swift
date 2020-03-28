@@ -114,15 +114,19 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.all)
             
                 VStack {
-                    
-                    
-                    
-                        Text("UUID: \(numbers)")
-                            .foregroundColor(.white)
-                        Text("Major: \(major)")
-                            .foregroundColor(.white)
-                        Text("Minor: \(minor)")
-                            .foregroundColor(.white)
+                   
+                    HStack {
+                        VStack {
+                            Text("UUID: \(numbers)")
+                                .foregroundColor(.white)
+                            Text("Major: \(major)")
+                                .foregroundColor(.white)
+                            Text("Minor: \(minor)")
+                                .foregroundColor(.white)
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                     
                     Spacer()
                     
@@ -174,7 +178,9 @@ struct ContentView: View {
                     .background(Color.gray)
                     .cornerRadius(20)
                     
-                    Spacer()
+                    
+                    
+                Spacer()
                     
                 }
     
