@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,7 +34,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
+/*
+//Needed to prompt user for notifications 
+let center = UNUserNotificationCenter.current()
+center.requestAuthorization(options: [.alert, .sound, .badge, .provisional]) { granted, error in
+    
+    if let error = error {
+        // Handle the error here.
+    }
+    
+    // Provisional authorization granted.
+}
+//prompts the notification based on action "didEnterRegion"
+func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLBeaconRegion)
+		{
+			guard region is CLBeaconRegion else { return }
+			
+			let content = UNMutableNotificationContent()
+			content.title = "Oops I'm too close"
+			content.body = "Get away from me now! Do you want to die or something?"
+			content.sound = .default
+			
+			let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+		}
+*/
 
 }
 

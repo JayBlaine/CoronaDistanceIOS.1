@@ -8,6 +8,68 @@
 
 import SwiftUI
 
+import CoreLocation
+import Combine
+
+
+//var locationManager: CLLocationManager!
+var iBeaconNear = false
+
+class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
+    var didChange = PassthroughSubject<Void, Never>()
+    var locationManager: CLLocationManager?
+    var lastDistance = CLProximity.unknown
+    
+    override init() {
+        super.init()
+        
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    startScanning()
+                }
+            }
+        }
+    }
+    
+    func startScanning() {
+        let uuid = UUID(uuidString: "5A4BCFCE-174E-4BAC-A814-A092377F6B7E5")!
+        //Replace with either user input or random uuid generator, 5A$BCFCE PLACEHOLDER TODO
+        //MAYBE MAKE !USER UUID
+        let constraint = CLBeaconIdentityConstraint(uuid: uuid, major: 123, minor: 456)
+        //Replace major/minor with user values, 123/456 PLACEHOLDER TODO
+        //MAYBE MAKE !USER MAJOR/MINOR
+        let beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: "Beacon")
+        
+        locationManager?.startMonitoring(for: beaconRegion)
+        locationManager?.startRangingBeacons(satisfying: constraint)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
+        if let beacon = beacons.first {
+            update(distance: beacon.proximity)
+        } else {
+            update(distance: .unknown)
+        }
+    }
+    
+    func update(distance: CLProximity) {
+        lastDistance = distance
+        didChange.send(())
+    }
+}
+
+
+
+
+
+
 struct ContentView: View {
     @State private var selection = 2
     @State private var searching = false
