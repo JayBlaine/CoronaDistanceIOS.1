@@ -7,18 +7,13 @@
 //
 
 import SwiftUI
-import CoreLocation
 
-protocol CLLocationManagerDelegate {}
-
-var locationManager: CLLocationManager!
-var iBeaconNear = false
-
+/*
 func viewDidLoad() {
     //super.viewDidLoad()
 
     locationManager = CLLocationManager()
-    locationManager.delegate = self
+    //locationManager.delegate = self
     locationManager.requestAlwaysAuthorization()
 }
 
@@ -76,8 +71,4 @@ func updateDistance(_ distance: CLProximity) {
     
 }
 
-
-
-
-
-
+*/
