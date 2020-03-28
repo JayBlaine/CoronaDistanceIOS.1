@@ -66,7 +66,11 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 }
 
 
+/*
+if detector.lastDistance == .near
+{
 
+}   */
 
 
 
@@ -77,7 +81,7 @@ struct ContentView: View {
     @State var major: String = ""
     @State var minor: String = ""
     @ObservedObject var detector = BeaconDetector()
- 
+    
     var body: some View {
         TabView(selection: $selection){
             
