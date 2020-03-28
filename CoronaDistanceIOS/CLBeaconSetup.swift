@@ -1,5 +1,6 @@
 //Enter the class information here {
 import Foundation
+import UIKit
 
 struct RSSItem
     {
@@ -20,7 +21,7 @@ class FeedParser: NSObject, XMLParserDelegate
         currentTitle = currentTitle.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
     }
-    public currentDescription: String = ""
+    public var currentDescription: String = ""
         {
         didSet
         {
@@ -33,9 +34,10 @@ class FeedParser: NSObject, XMLParserDelegate
         {
         currentPubDate = currentPubDate.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
-    }
+    
     public var parserCompletion Handler: (([RSSItem]) -> Void)?
     }
+
     
     func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void?
         {
