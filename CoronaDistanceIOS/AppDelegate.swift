@@ -10,7 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+	application(_:didFinishLaunchingWithOptions:)
+	let locationManager = CLLocationManager()
+	locationManager.delegate = self
+	
+	
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -35,3 +39,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - CLLocationManagerDelegate
+extension AppDelegate: CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+		guard region is CLBeaconRegion else { return }
+
+		let content = UNMutableNotificationContent()
+		content.title = "Forget Me Not"
+		content.body = "Are you forgetting something?"
+		content.sound = .default()
+    
+	let request = UNNotificationRequest(identifier: "ForgetMeNot", content: content, trigger: nil)
+	UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+}
+}
