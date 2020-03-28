@@ -14,6 +14,8 @@ import CoreBluetooth
 
 
 //let userLocationAccess = CoreLocation.req
+class CLLocationManager : NSObject {
+    
 
 func monitorBeacons() {
     if CLLocationManager.isMonitoringAvailable(for:
@@ -48,21 +50,24 @@ func locationManager(_ manager: CLLocationManager,
         in region: CLBeaconRegion) {
 if beacons.count > 0 {
     let nearestBeacon = beacons.first!
-    let major = CLBeaconMajorValue(nearestBeacon.major)
-    let minor = CLBeaconMinorValue(nearestBeacon.minor)
+    let CLBeaconMajor = CLBeaconMajorValue(truncating: nearestBeacon.major)
+    let CLBeaconMinor = CLBeaconMinorValue(truncating: nearestBeacon.minor)
         
     switch nearestBeacon.proximity {
     case .near, .immediate:
         // Display information about the relevant exhibit.
-        displayInformationAboutExhibit(major: major, minor: minor)
+        //displayInformationAboutExhibit(major: major, minor: minor)
         break
             
     default:
        // Dismiss exhibit information, if it is displayed.
-       dismissExhibit(major: major, minor: minor)
+       //dismissExhibit(major: major, minor: minor)
        break
        }
     }
+}
+    
+    
 }
 
 
