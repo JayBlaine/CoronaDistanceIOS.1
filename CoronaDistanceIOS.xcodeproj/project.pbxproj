@@ -16,6 +16,7 @@
 		977C16AE242FB29F005406A7 /* CoronaDistanceIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16AD242FB29F005406A7 /* CoronaDistanceIOSTests.swift */; };
 		977C16B9242FB29F005406A7 /* CoronaDistanceIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16B8242FB29F005406A7 /* CoronaDistanceIOSUITests.swift */; };
 		977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */; };
+		977C16C9242FCF21005406A7 /* HandleBeaconNear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16C8242FCF21005406A7 /* HandleBeaconNear.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		977C16B8242FB29F005406A7 /* CoronaDistanceIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaDistanceIOSUITests.swift; sourceTree = "<group>"; };
 		977C16BA242FB29F005406A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBeaconSetup.swift; sourceTree = "<group>"; };
+		977C16C8242FCF21005406A7 /* HandleBeaconNear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleBeaconNear.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				977C1698242FB29D005406A7 /* SceneDelegate.swift */,
 				977C169A242FB29D005406A7 /* ContentView.swift */,
 				977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */,
+				977C16C8242FCF21005406A7 /* HandleBeaconNear.swift */,
 				977C169C242FB29F005406A7 /* Assets.xcassets */,
 				977C16A1242FB29F005406A7 /* LaunchScreen.storyboard */,
 				977C16A4242FB29F005406A7 /* Info.plist */,
@@ -272,6 +275,7 @@
 			files = (
 				977C1697242FB29D005406A7 /* AppDelegate.swift in Sources */,
 				977C1699242FB29D005406A7 /* SceneDelegate.swift in Sources */,
+				977C16C9242FCF21005406A7 /* HandleBeaconNear.swift in Sources */,
 				977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */,
 				977C169B242FB29D005406A7 /* ContentView.swift in Sources */,
 			);
