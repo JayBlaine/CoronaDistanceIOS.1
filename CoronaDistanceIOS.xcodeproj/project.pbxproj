@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		977C16AE242FB29F005406A7 /* CoronaDistanceIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16AD242FB29F005406A7 /* CoronaDistanceIOSTests.swift */; };
 		977C16B9242FB29F005406A7 /* CoronaDistanceIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16B8242FB29F005406A7 /* CoronaDistanceIOSUITests.swift */; };
 		977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */; };
+		977C16D32430716A005406A7 /* newsFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16D22430716A005406A7 /* newsFile.swift */; };
+		977C16D62430720B005406A7 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 977C16D52430720B005406A7 /* SwiftyJSON */; };
+		977C16D924307278005406A7 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 977C16D824307278005406A7 /* SDWebImageSwiftUI */; };
 		D970E46424302750009D7FA1 /* its-corona-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D970E46324302750009D7FA1 /* its-corona-time.mp3 */; };
 		D970E46624302943009D7FA1 /* PlaySounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970E46524302943009D7FA1 /* PlaySounds.swift */; };
 		D970E4682430375E009D7FA1 /* Silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D970E4672430375D009D7FA1 /* Silence.mp3 */; };
@@ -54,6 +57,7 @@
 		977C16B8242FB29F005406A7 /* CoronaDistanceIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaDistanceIOSUITests.swift; sourceTree = "<group>"; };
 		977C16BA242FB29F005406A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBeaconSetup.swift; sourceTree = "<group>"; };
+		977C16D22430716A005406A7 /* newsFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsFile.swift; sourceTree = "<group>"; };
 		D970E46324302750009D7FA1 /* its-corona-time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "its-corona-time.mp3"; sourceTree = "<group>"; };
 		D970E46524302943009D7FA1 /* PlaySounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySounds.swift; sourceTree = "<group>"; };
 		D970E4672430375D009D7FA1 /* Silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Silence.mp3; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977C16D924307278005406A7 /* SDWebImageSwiftUI in Frameworks */,
+				977C16D62430720B005406A7 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +124,7 @@
 				977C16A1242FB29F005406A7 /* LaunchScreen.storyboard */,
 				977C16A4242FB29F005406A7 /* Info.plist */,
 				977C169E242FB29F005406A7 /* Preview Content */,
+				977C16D22430716A005406A7 /* newsFile.swift */,
 			);
 			path = CoronaDistanceIOS;
 			sourceTree = "<group>";
@@ -164,6 +171,10 @@
 			dependencies = (
 			);
 			name = CoronaDistanceIOS;
+			packageProductDependencies = (
+				977C16D52430720B005406A7 /* SwiftyJSON */,
+				977C16D824307278005406A7 /* SDWebImageSwiftUI */,
+			);
 			productName = CoronaDistanceIOS;
 			productReference = 977C1693242FB29D005406A7 /* CoronaDistanceIOS.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +247,10 @@
 				Base,
 			);
 			mainGroup = 977C168A242FB29D005406A7;
+			packageReferences = (
+				977C16D42430720B005406A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				977C16D724307278005406A7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 977C1694242FB29D005406A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -285,6 +300,7 @@
 				977C1699242FB29D005406A7 /* SceneDelegate.swift in Sources */,
 				D970E46624302943009D7FA1 /* PlaySounds.swift in Sources */,
 				977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */,
+				977C16D32430716A005406A7 /* newsFile.swift in Sources */,
 				977C169B242FB29D005406A7 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +622,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		977C16D42430720B005406A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		977C16D724307278005406A7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		977C16D52430720B005406A7 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 977C16D42430720B005406A7 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		977C16D824307278005406A7 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 977C16D724307278005406A7 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 977C168B242FB29D005406A7 /* Project object */;
 }
