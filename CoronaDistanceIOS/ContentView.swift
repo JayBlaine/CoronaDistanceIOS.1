@@ -117,7 +117,7 @@ class GetData : ObservableObject {
     @Published var datas = [dataType]()
     
     init() {
-        let source = "https://newsapi.org/v2/top-headlines?country=us&q=covid&apiKey=a7e759e71fa0436b89b9d4c353a8f1f0"
+        let source = "https://newsapi.org/v2/top-headlines?q=covid&apiKey=a7e759e71fa0436b89b9d4c353a8f1f0"
         
         let url = URL(string: source)!
         
