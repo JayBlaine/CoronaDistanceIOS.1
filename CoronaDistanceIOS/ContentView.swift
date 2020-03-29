@@ -116,7 +116,7 @@ struct ContentView: View {
     @ObservedObject var detector = BeaconDetector()
     @State var UUIDReady: Bool = false
     @State var music: Bool = true
-    @State var isShowingAlert = false
+    @State private var isShowingAlert = false
 
     var body: some View {
         TabView(selection: $selection){
@@ -218,10 +218,8 @@ struct ContentView: View {
                         Spacer()
                         
 							Button(action: {
-								let alertController = UIAlertController(title: "Oops you're too close", message: "Get away from him now! Do you want to die or something?", preferredStyle: .alert)
-								alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+								self.isShowingAlert = true
 								
-								self.present(alertController, animated: true, completion: nil)
 							}) {
                                       Text("Notification Test")
                                         .font(.headline)
@@ -229,7 +227,12 @@ struct ContentView: View {
                                         .foregroundColor(.black)
                                         .background(Color.gray)
                                         .cornerRadius(20)
-                                    }.padding(.all, 10)
+                                    }
+									.alert(isPresented: $isShowingAlert) {
+										Alert(title: Text("Oops too close"), mesage: Text("Get away from him! Are you trying to get sick?"), dismissButton: .deafult(Text("Got it!")))
+									
+									
+									}.padding(.all, 10)
                                 }
                     
                     /*
