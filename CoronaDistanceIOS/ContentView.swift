@@ -128,7 +128,7 @@ struct ContentView: View {
                             if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
                            {
 						   (void)locationManager:(CLLocationManager *)manager
-								didEnterRegion:(CLBeaconRegion *)region
+								didEnterRegion:(CLBeaconRegion *)region;
 								
                            //prompts the notification
                                        let content = UNMutableNotificationContent()
