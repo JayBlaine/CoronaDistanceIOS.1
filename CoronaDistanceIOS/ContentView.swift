@@ -80,7 +80,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct ContentView: View {
     
-    @State private var selection = 0
+    @State private var selection = 1
     @State private var searching = false
     @State var numbers: String = ""
     @State var major: String = ""
@@ -142,6 +142,24 @@ struct ContentView: View {
                             iBeaconNear = false
                         }
                             
+                        if self.searching {
+                            if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
+                           {	
+                           //prompts the notification
+                                       let content = UNMutableNotificationContent()
+                                       content.title = "Oops I'm too close"
+                                       content.body = "Get away from him now! Do you want to die or something?"
+                                       content.sound = .default
+                                       
+                                       let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+                                       UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                       
+                                       iBeaconNear = true
+                           }
+                            else {
+                                iBeaconNear = false
+                            }
+                        }
                         
                         if ((self.numbers == self.major) && (self.major == self.minor)) {
                             self.UUIDReady = false
@@ -198,6 +216,11 @@ struct ContentView: View {
                 VStack {
                     
                     HStack {
+                        
+                        Text("COVID-19 News")
+                            .font(.title)
+                            .bold()
+                        
                         Spacer()
                         
                         Button(action: {
@@ -212,6 +235,7 @@ struct ContentView: View {
                             .foregroundColor(.black)
                             .background(Color.gray)
                             .cornerRadius(10)
+                            .shadow(radius: 10)
                         }
                         
                     }.padding(.horizontal, 10)
