@@ -339,31 +339,6 @@ struct ContentView: View {
                 
                 VStack {
                     
-                    HStack {
-                        
-                        Text("COVID-19 News")
-                            .font(.title)
-                            .bold()
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            //todo
-                        }) {
-                            HStack {
-                                Text("Refresh")
-                                Image(systemName: "arrow.2.squarepath")
-                            }
-                            .font(.body)
-                            .padding(.all, 15)
-                            .foregroundColor(.black)
-                            .background(Color.gray)
-                            .cornerRadius(10)
-                            .shadow(radius: 10)
-                        }
-                        
-                    }.padding(.horizontal, 10)
-                   Spacer()
                     NavigationView{
                     
                     List(list.datas){i in
