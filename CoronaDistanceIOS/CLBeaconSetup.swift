@@ -37,6 +37,7 @@ class FeedParser: NSObject, XMLParserDelegate
  
     var parserCompletion Handler: (([RSSItem]) -> Void)?
     }
+
     
     func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?)
         {
