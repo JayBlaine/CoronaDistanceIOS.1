@@ -116,6 +116,7 @@ struct ContentView: View {
     @ObservedObject var detector = BeaconDetector()
     @State var UUIDReady: Bool = false
     @State var music: Bool = true
+    @State var isShowingAlert = false
 
     var body: some View {
         TabView(selection: $selection){
@@ -217,7 +218,6 @@ struct ContentView: View {
                         Spacer()
                         
 							Button(action: {
-							@State var isShowingAlert = false
 								self.isShowingAlert.toggle()
 								
 								.alert(isPresented: $isShowingAlert) { () -> Alert in
