@@ -134,6 +134,8 @@ struct ContentView: View {
                         
                         if self.searching {
                             playSound(sound: "its-corona-time", type: "mp3")
+                        } else {
+                            playSound(sound: "Silence", type: "mp3")
                         }
                         
                         if ((self.numbers == self.major) && (self.major == self.minor)) {

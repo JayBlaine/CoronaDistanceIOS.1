@@ -18,6 +18,7 @@
 		977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */; };
 		D970E46424302750009D7FA1 /* its-corona-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D970E46324302750009D7FA1 /* its-corona-time.mp3 */; };
 		D970E46624302943009D7FA1 /* PlaySounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970E46524302943009D7FA1 /* PlaySounds.swift */; };
+		D970E4682430375E009D7FA1 /* Silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D970E4672430375D009D7FA1 /* Silence.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBeaconSetup.swift; sourceTree = "<group>"; };
 		D970E46324302750009D7FA1 /* its-corona-time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "its-corona-time.mp3"; sourceTree = "<group>"; };
 		D970E46524302943009D7FA1 /* PlaySounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySounds.swift; sourceTree = "<group>"; };
+		D970E4672430375D009D7FA1 /* Silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Silence.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				D970E46324302750009D7FA1 /* its-corona-time.mp3 */,
+				D970E4672430375D009D7FA1 /* Silence.mp3 */,
 				977C1696242FB29D005406A7 /* AppDelegate.swift */,
 				977C1698242FB29D005406A7 /* SceneDelegate.swift */,
 				977C169A242FB29D005406A7 /* ContentView.swift */,
@@ -249,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D970E4682430375E009D7FA1 /* Silence.mp3 in Resources */,
 				D970E46424302750009D7FA1 /* its-corona-time.mp3 in Resources */,
 				977C16A3242FB29F005406A7 /* LaunchScreen.storyboard in Resources */,
 				977C16A0242FB29F005406A7 /* Preview Assets.xcassets in Resources */,
