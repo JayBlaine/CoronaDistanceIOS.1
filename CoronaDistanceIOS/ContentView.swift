@@ -270,7 +270,22 @@ struct ContentView: View {
                     Spacer()
                     
                     HStack {
-                        Spacer()
+                        
+                        Button(action: {
+                            self.isShowingAlert = true
+                            
+                        }) {
+                                  Text("Get Information")
+                                    .font(.headline)
+                                    .padding(.all, 20)
+                                    .foregroundColor(.black)
+                                    .background(Color.gray)
+                                    .cornerRadius(20)
+                        }.padding(.all, 10)
+                    //alert stuff
+                                
+                            Spacer()
+                        
 							//Test Button for notification when two beacons are too close
 							Button(action: {
 								self.isShowingAlert = true
