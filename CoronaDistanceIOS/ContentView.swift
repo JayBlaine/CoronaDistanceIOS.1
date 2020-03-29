@@ -20,12 +20,11 @@ import Foundation
 //var locationManager: CLLocationManager!
 var iBeaconNear = false
    
-/*********
+
+/*
  MAYBE CHANGE
-var didChange = PassthroughSubject<Void, Never>()  to  var didChange  = ObservableObjectPublisher()
-and
-didChange.send() to self.didChange.send()
- *********/
+ var didChange = PassthroughSubject<Void, Never>() to var didChange = ObservablePublisher()
+ */
 
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
