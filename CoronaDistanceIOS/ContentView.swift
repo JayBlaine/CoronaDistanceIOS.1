@@ -397,21 +397,21 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    HStack {
+                    
                         Text("Your Major: 12300")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
-                        Spacer()
-                    }.padding(.horizontal, 10)
+                       
                     
-                    HStack {
+                    Spacer()
+                    
                         Text("Your Minor: 45600")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
-                        Spacer()
-                    }.padding(.horizontal, 10)
+                        
+                    
                     
                     Spacer()
                     
