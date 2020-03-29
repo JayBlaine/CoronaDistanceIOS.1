@@ -132,6 +132,10 @@ struct ContentView: View {
                         
                         self.searching.toggle()
                         
+                        if self.searching {
+                            playSound(sound: "its-corona-time", type: "mp3")
+                        }
+                        
                         if ((self.numbers == self.major) && (self.major == self.minor)) {
                             self.UUIDReady = false
                         } else if ( self.numbers != "" ) {
