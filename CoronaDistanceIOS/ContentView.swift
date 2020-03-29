@@ -68,12 +68,12 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func advertiseDevice(region : CLBeaconRegion) {
-        let peripheral = CBPeripheralManager.self
-        let peripheralData = region.peripheralData(withMeasuredPower: nil)
-            
-        peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
-    }
+//    func advertiseDevice(region : CLBeaconRegion) {
+//        let peripheral = CBPeripheralManager.self
+//        let peripheralData = region.peripheralData(withMeasuredPower: nil)
+//
+//        peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
+//    }
     
         
     func update(distance: CLProximity) {
