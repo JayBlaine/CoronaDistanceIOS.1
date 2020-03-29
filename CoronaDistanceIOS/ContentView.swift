@@ -80,7 +80,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct ContentView: View {
     
-    @State private var selection = 0
+    @State private var selection = 1
     @State private var searching = false
     @State var numbers: String = ""
     @State var major: String = ""
@@ -198,6 +198,11 @@ struct ContentView: View {
                 VStack {
                     
                     HStack {
+                        
+                        Text("COVID-19 News")
+                            .font(.title)
+                            .bold()
+                        
                         Spacer()
                         
                         Button(action: {
