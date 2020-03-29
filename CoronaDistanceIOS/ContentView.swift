@@ -120,7 +120,7 @@ struct ContentView: View {
                         if self.searching {
                             playSound(sound: "its-corona-time", type: "mp3")
                             
-                            if(self.searching == true) {
+                            if self.searching {
                                 if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
                                {
                                //prompts the notification
@@ -140,6 +140,7 @@ struct ContentView: View {
                             }
                         } else {
                             playSound(sound: "Silence", type: "mp3")
+                            iBeaconNear = false
                         }
                         
                         if ((self.numbers == self.major) && (self.major == self.minor)) {
