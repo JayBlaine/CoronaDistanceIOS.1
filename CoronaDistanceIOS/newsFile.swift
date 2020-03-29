@@ -6,12 +6,12 @@
 //  Copyright © 2020 Group. All rights reserved.
 //
 
-import Foundation
+
 import SwiftUI
 import SwiftyJSON
 import SDWebImageSwiftUI
 import WebKit
-
+import Foundation
 
 struct dataType : Identifiable {
     var id : String
