@@ -24,7 +24,7 @@ didChange.send() to self.didChange.send()
 
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var didChange = ObservableObjectPublisher()
+    var didChange = PassthroughSubject<Void, Never>()
     var locationManager: CLLocationManager?
     var lastDistance = CLProximity.unknown
     
