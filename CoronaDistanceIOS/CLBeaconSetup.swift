@@ -12,30 +12,30 @@ struct RSSItem
 // download xml from a server, parse xml to foundation object
 class FeedParser: NSObject, XMLParserDelegate
     {
-    public var rssItems: [RSSItem] = []
-    public var currentKey = ""
-    public var currentTitle: String = ""
+     var rssItems: [RSSItem] = []
+     var currentKey = ""
+     var currentTitle: String = ""
     {
         didSet
         {
         currentTitle = currentTitle.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
     }
-    public currentDescription: String = ""
+    var currentDescription: String = ""
     {
         didSet
         {
         currentDescription = currentDescription.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
     }
-    public var currentPubDate: String = ""
+    var currentPubDate: String = ""
         {
         didSet
         {
         currentPubDate = currentPubDate.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
  
-    public var parserCompletion Handler: (([RSSItem]) -> Void)?
+    var parserCompletion Handler: (([RSSItem]) -> Void)?
     }
     
     func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?)
@@ -132,7 +132,7 @@ class FeedParser: NSObject, XMLParserDelegate
 
 class NewsTableViewController: UITableViewController
     {
-    public var rssItems: [RSSItem]?
+    var rssItems: [RSSItem]?
     
     override func viewDidLoad()
         {
@@ -144,12 +144,12 @@ class NewsTableViewController: UITableViewController
         fetchData()
         }
         
-        public func fetchData()
+        func fetchData()
             {
             
             for n in 1...4
                 {
-                switch counter
+                switch n
                     {
                     case 0:
                         let feedParser.parseFeed(url: "http://rss.cnn.com/rss/cnn_health.rss"){ (rssItems) in
