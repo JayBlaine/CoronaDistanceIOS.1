@@ -384,16 +384,21 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    HStack {
+                    
                         Text("Your UUID:")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
-                        Spacer()
-                    }.padding(.horizontal, 10)
+                    
+                    Text("35F9689E-21AF-444D-A700-B15f0C136804")
+                        .font(.body)
+                        .foregroundColor(.gray)
+                        .bold()
+                    
+                    Spacer()
                     
                     HStack {
-                        Text("Your Major:")
+                        Text("Your Major: 12300")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
@@ -401,7 +406,7 @@ struct ContentView: View {
                     }.padding(.horizontal, 10)
                     
                     HStack {
-                        Text("Your Minor:")
+                        Text("Your Minor: 45600")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
