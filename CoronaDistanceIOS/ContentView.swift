@@ -130,7 +130,7 @@ struct ContentView: View {
                            //prompts the notification
                                        let content = UNMutableNotificationContent()
                                        content.title = "Oops I'm too close"
-                                       content.body = "Get away from him now! Doyou wabt to die or something?"
+                                       content.body = "Get away from him now! Do you want to die or something?"
                                        content.sound = .default
                                        
                                        let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
