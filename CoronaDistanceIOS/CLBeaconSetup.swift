@@ -146,13 +146,13 @@ class NewsTableViewController: UITableViewController
         
         func fetchData()
             {
-            
+             let feedParser = FeedParser()
             for n in 1...4
                 {
                 switch n
                     {
                     case 0:
-                        let feedParser.parseFeed(url: "http://rss.cnn.com/rss/cnn_health.rss"){ (rssItems) in
+                         feedParser.parseFeed(url: "http://rss.cnn.com/rss/cnn_health.rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -162,7 +162,7 @@ class NewsTableViewController: UITableViewController
                         }
             
                     case 1:
-                        let feedParser.parseFeed(url: "https://www.foxnews.com/about/rss"){ (rssItems) in
+                         feedParser.parseFeed(url: "https://www.foxnews.com/about/rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -172,7 +172,7 @@ class NewsTableViewController: UITableViewController
                         }
                         
                     case 2:
-                        let feedParser.parseFeed(url: "https://www.who.int/feeds/entity/csr/don/en/rss.xml"){ (rssItems) in
+                         feedParser.parseFeed(url: "https://www.who.int/feeds/entity/csr/don/en/rss.xml"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -182,7 +182,7 @@ class NewsTableViewController: UITableViewController
                         }
             
                     case 3:
-                        let feedParser.parseFeed(url: "https://tools.cdc.gov/api/v2/resources/media/403372.rss"){ (rssItems) in
+                         feedParser.parseFeed(url: "https://tools.cdc.gov/api/v2/resources/media/403372.rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -192,7 +192,7 @@ class NewsTableViewController: UITableViewController
                         }
             
                     case 4:
-                        let feedParser.parseFeed(url: "http://feeds.bbci.co.uk/news/health/rss.xml#"){ (rssItems) in
+                         feedParser.parseFeed(url: "http://feeds.bbci.co.uk/news/health/rss.xml#"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
