@@ -23,7 +23,7 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We want to scan for beacons</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We want to scan for beacons 2</string>
+	<string>We want to scan for beacons</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
