@@ -196,10 +196,32 @@ struct ContentView: View {
             
             //Second Page Section
             
-            Text("News")
+            ZStack {
                 
+                VStack {
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            //todo
+                        }) {
+                            HStack {
+                                Text("Refresh")
+                                Image(systemName: "arrow.2.squarepath")
+                            }
+                            .font(.body)
+                            .padding(.all, 15)
+                            .foregroundColor(.black)
+                            .background(Color.gray)
+                            .cornerRadius(10)
+                        }
+                        
+                    }.padding(.horizontal, 10)
+                   Spacer()
+                }
                 
-                
+            }
                 
                 //Second Tab Section
                 .tabItem {
