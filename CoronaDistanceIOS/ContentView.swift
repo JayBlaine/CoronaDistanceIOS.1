@@ -193,11 +193,7 @@ struct ContentView: View {
             
             //Second Page Section
             
-            Button(action: {
-                //
-            }) {
-                
-            }
+            Text("News")
                 
                 
                 
