@@ -229,7 +229,7 @@ struct ContentView: View {
                                         .cornerRadius(20)
                                     }
 									.alert(isPresented: $isShowingAlert) {
-										Alert(title: Text("Oops too close"), mesage: Text("Get away from him! Are you trying to get sick?"), dismissButton: .deafult(Text("Got it!")))
+										Alert(title: Text("Oops too close"), message: Text("Get away from him! Are you trying to get sick?"), dismissButton: .default(Text("Got it!")))
 									
 									
 									}.padding(.all, 10)
