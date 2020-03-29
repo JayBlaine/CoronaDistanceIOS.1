@@ -281,7 +281,12 @@ struct ContentView: View {
                                     .foregroundColor(.black)
                                     .background(Color.gray)
                                     .cornerRadius(20)
-                        }.padding(.all, 10)
+                        }
+						.alert(isPresented: $isShowingAlert) {
+								Alert(title: Text("Info"), message: Text("This was was created to help practice social distancing and to promote social awareness during the CoronaVirus Pandemic. Press the Button to start practicing Social Distancing today!(If you wish to turn off the music go to the Settings tab and switch music off)"), dismissButton: .default(Text("Got it!")))
+									
+									
+						}.padding(.all, 10)
                     //alert stuff
                                 
                             Spacer()
