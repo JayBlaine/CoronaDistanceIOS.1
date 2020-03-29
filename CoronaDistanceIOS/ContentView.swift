@@ -116,6 +116,7 @@ struct ContentView: View {
     @ObservedObject var detector = BeaconDetector()
     @State var UUIDReady: Bool = false
     @State var music: Bool = true
+    @State var isShowingAlert = false
 
     var body: some View {
         TabView(selection: $selection){
@@ -216,49 +217,48 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         
-							Button("A Button") {
-								var isShowingAlert = false
+							Button(action: {
 								self.isShowingAlert.toggle()
-								}
-						.alert(isPresented: $isShowingAlert) { () -> Alert in
-							Alert(
-								title: Text("Alert"),
-								message: Text("This is an alert"),
-								dismissButton:
-							.default(
-								Text("OK"),
-								action: {
-									print("Dismissing alert")
-										}
+								
+								.alert(isPresented: $isShowingAlert) { () -> Alert in
+								Alert(
+									title: Text("Alert"),
+									message: Text("This is an alert"),
+									dismissButton:
+										.default(
+											Text("OK"),
+											action: {
+												print("Dismissing alert")
+											}
+										)
 									)
-								)
-						}		
+								}
+							}) {
+                                      Text("Notification Test")
+                                        .font(.headline)
+                                        .padding(.all, 20)
+                                        .foregroundColor(.black)
+                                        .background(Color.gray)
+                                        .cornerRadius(20)
+                                    }.padding(.all, 10)
+                                }
                     
-						/*
-                            if(iBeaconNear == true) {
-                                let content = UNMutableNotificationContent()
-                                content.title = "Oops I'm too close"
-                                content.body = "Get away from him now! Doyou wabt to die or something?"
-                                content.sound = .default
-                                
-                                let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
-                                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                
-                                iBeaconNear = false
-                            }
-                            else if(iBeaconNear == false) {
-                                iBeaconNear = true
-                            }*/
-							
-                         {
-                          Text("Notification Test")
-                            .font(.headline)
-                            .padding(.all, 20)
-                            .foregroundColor(.black)
-                            .background(Color.gray)
-                            .cornerRadius(20)
-                        }.padding(.all, 10)
+                    /*
+                    if(iBeaconNear == true) {
+                        let content = UNMutableNotificationContent()
+                        content.title = "Oops I'm too close"
+                        content.body = "Get away from him now! Doyou wabt to die or something?"
+                        content.sound = .default
+                        
+                        let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                        
+                        iBeaconNear = false
                     }
+                    else if(iBeaconNear == false) {
+                        iBeaconNear = true
+                    }
+                    */
                     
                     
                 }
