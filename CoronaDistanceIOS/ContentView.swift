@@ -217,7 +217,7 @@ struct ContentView: View {
                         Spacer()
                         
 							Button("A Button") {
-
+								var isShowingAlert = false
 								self.isShowingAlert.toggle()
 								}
 						.alert(isPresented: $isShowingAlert) { () -> Alert in
