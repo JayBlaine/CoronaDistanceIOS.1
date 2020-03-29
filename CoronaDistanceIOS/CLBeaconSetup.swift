@@ -44,7 +44,7 @@ class FeedParser: NSObject, XMLParserDelegate
         self.parserCompletionHandler = completionHandler
         let request = URLRequest(url: URL(string: url)!)
         let urlSession = URLSession.shared
-            let task = urlSession,dataTask(request) { (data, response, error) in
+            let task = urlSession.dataTask(with: request) { (data, response, error) in
             guard let data = data
             else
                 {
@@ -64,12 +64,12 @@ class FeedParser: NSObject, XMLParserDelegate
         
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributesDict: [String : String] = [ : ])
         {
-        currentElement = elementName
+        var currentElement = elementName
         if currentElement == "item"
             {
             currentTitle = ""
             currentDescription = ""
-            CurrentPubDate = ""
+            currentPubDate = ""
             }
         }
         
@@ -81,7 +81,7 @@ class FeedParser: NSObject, XMLParserDelegate
             
             case "description": currentDescription += temp
             
-            case "pubdate": currentPubDate += temp
+            case "pubDate": currentPubDate += temp
             default: break
             }
         }
