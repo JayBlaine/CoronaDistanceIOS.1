@@ -10,6 +10,7 @@ import SwiftUI
 
 import CoreLocation
 import Combine
+import CoreBluetooth
 
 
 //var locationManager: CLLocationManager!
@@ -24,7 +25,7 @@ didChange.send() to self.didChange.send()
 
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var didChange = ObservableObjectPublisher()
+    var didChange = PassthroughSubject<Void, Never>()
     var locationManager: CLLocationManager?
     var lastDistance = CLProximity.unknown
     
@@ -47,7 +48,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func startScanning() {
-        let uuid = UUID(uuidString: "35f9689e-21af-444d-a700-b15f0c136804")!
+        let uuid = UUID(uuidString: "35F9689E-21AF-444D-A700-B15f0C136804")!
         //Replace with either user input or random uuid generator, 5A4BCFCE PLACEHOLDER TODO
         //MAYBE MAKE !USER UUID
         let constraint = CLBeaconIdentityConstraint(uuid: uuid, major: 12300, minor: 45600)
@@ -67,12 +68,39 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    func advertiseDevice(region : CLBeaconRegion) {
+        let peripheral = CBPeripheralManager.self
+        let peripheralData = region.peripheralData(withMeasuredPower: nil)
+            
+        peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
+    }
+    
+        
     func update(distance: CLProximity) {
         lastDistance = distance
-        self.didChange.send()
+        didChange.send()
     }
 }
 
+//class BeaconEmitter: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeripheralManagerDelegate {
+//    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+//        <#code#>
+//    }
+//    var beacon: CLBeaconRegion!
+//    var data: NSDictionary!
+//    var peripheralManager: CBPeripheralManager!
+//
+//    func startBeacon() {
+//        let UUID = "6B5CDERF-285F-5TAC-A814-092E88G6C8F6"
+//        let major: CLBeaconMajorValue = 567
+//        let minor: CLBeaconMinorValue = 987
+//        beacon = CLBeaconRegion(proximityUUID:  NSUUID(uuidString: UUID)! as UUID, major: major, minor: minor, identifier: "IDENTIFIER")
+//
+//        data = beacon.peripheralData(withMeasuredPower: nil)
+//        peripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: nil)
+//    }
+//
+//}
 
  
 
