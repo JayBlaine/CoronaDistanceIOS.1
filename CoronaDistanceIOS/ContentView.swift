@@ -142,25 +142,6 @@ struct ContentView: View {
                                 iBeaconNear = false
                             }
                         }
-                    
-                        if self.searching {
-                            if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
-                           {
-                           //prompts the notification
-                                       let content = UNMutableNotificationContent()
-                                       content.title = "Oops I'm too close"
-                                       content.body = "Get away from me now! Do you want to die or something?"
-                                       content.sound = .default
-                                       
-                                       let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
-                                       UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                       
-                                       iBeaconNear = true
-                           }
-                            else {
-                                iBeaconNear = false
-                            }
-                        }
                         
                         if ((self.numbers == self.major) && (self.major == self.minor)) {
                             self.UUIDReady = false
@@ -212,8 +193,12 @@ struct ContentView: View {
             
             //Second Page Section
             
-            Text("News Incoming")
-                .font(.title)
+            Button(action: {
+                //
+            }) {
+                
+            }
+                
                 
                 
                 
