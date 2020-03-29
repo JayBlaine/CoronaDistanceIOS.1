@@ -217,7 +217,20 @@ struct ContentView: View {
                         Spacer()
                         
                         Button(action: {
-                         //add code
+                            if(iBeaconNear == true) {
+                                let content = UNMutableNotificationContent()
+                                content.title = "Oops I'm too close"
+                                content.body = "Get away from him now! Doyou wabt to die or something?"
+                                content.sound = .default
+                                
+                                let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+                                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                
+                                iBeaconNear = false
+                            }
+                            else if(iBeaconNear == false) {
+                                iBeaconNear = true
+                            }
                         }) {
                           Text("Notification Test")
                             .font(.headline)
