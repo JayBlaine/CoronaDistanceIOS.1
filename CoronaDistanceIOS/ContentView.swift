@@ -195,6 +195,10 @@ struct ContentView: View {
             
             ZStack {
                 
+                Rectangle()
+                    .edgesIgnoringSafeArea(.all)
+                    .foregroundColor(.gray)
+                
                 VStack {
                     
                     HStack {
@@ -215,7 +219,7 @@ struct ContentView: View {
                             .font(.body)
                             .padding(.all, 15)
                             .foregroundColor(.black)
-                            .background(Color.gray)
+                            .background(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 0.8))
                             .cornerRadius(10)
                             .shadow(radius: 10)
                         }
