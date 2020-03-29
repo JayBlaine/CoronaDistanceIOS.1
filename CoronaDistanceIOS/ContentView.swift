@@ -232,9 +232,7 @@ struct ContentView: View {
                             }
                         )
                 )
-            
-
-        }
+                    
 						/*
                             if(iBeaconNear == true) {
                                 let content = UNMutableNotificationContent()
