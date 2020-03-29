@@ -212,7 +212,7 @@ struct ContentView: View {
                     }.padding(.horizontal, 10)
                     
                     Spacer()
-                    
+                    //Button to stop or start corona music
                     Button(action: {
                         
                         self.searching.toggle()
@@ -224,7 +224,7 @@ struct ContentView: View {
                                 playSound(sound: "Silence", type: "mp3")
                             }
                         }
-                        
+                        //Checks if distance of beacon is near or immediate
                         if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
                         {
                          print("Test")
@@ -281,7 +281,7 @@ struct ContentView: View {
                     
                     HStack {
                         Spacer()
-                        
+							//Test Button for notification when two beacons are too close
 							Button(action: {
 								self.isShowingAlert = true
 								
@@ -330,7 +330,6 @@ struct ContentView: View {
                 .tag(0)
             
             //Second Page Section
-            
             ZStack {
                 
                 Rectangle()
@@ -338,7 +337,7 @@ struct ContentView: View {
                     .foregroundColor(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 1.0))
                 
                 VStack {
-                    
+                    //View for New articles
                     NavigationView{
                     
                     List(list.datas){i in
