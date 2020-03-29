@@ -218,21 +218,10 @@ struct ContentView: View {
                         Spacer()
                         
 							Button(action: {
-								self.isShowingAlert.toggle()
+								let alertController = UIAlertController(title: "Oops you're too close", message: "Get away from him now! Do you want to die or something?", preferredStyle: .alert)
+								alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 								
-								.alert(isPresented: $isShowingAlert) { () -> Alert in
-								Alert(
-									title: Text("Alert"),
-									message: Text("This is an alert"),
-									dismissButton:
-										.default(
-											Text("OK"),
-											action: {
-												print("Dismissing alert")
-											}
-										)
-									)
-								}
+								self.present(alertController, animated: true, completion: nil)
 							}) {
                                       Text("Notification Test")
                                         .font(.headline)
