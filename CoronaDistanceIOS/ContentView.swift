@@ -219,7 +219,7 @@ struct ContentView: View {
                         Button(action: {
                             let alert = UIAlertController(title: "Oops", message: "Get away from him now! Do you want to get sick or something?", preferredStyle: UIAlertController.Style.alert)
                             alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
-						self.present(alert, animated: true, completion: nil)
+						self.presentViewController(alert, animated: true, completion: nil)
 						/*
                             if(iBeaconNear == true) {
                                 let content = UNMutableNotificationContent()
