@@ -115,6 +115,7 @@ struct ContentView: View {
     @State var minor: String = ""
     @ObservedObject var detector = BeaconDetector()
     @State var UUIDReady: Bool = false
+    @State var music: Bool = true
 
     var body: some View {
         TabView(selection: $selection){
@@ -212,6 +213,21 @@ struct ContentView: View {
                     
                     Spacer()
                     
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                         //add code
+                        }) {
+                          Text("Notification Test")
+                            .font(.headline)
+                            .padding(.all, 20)
+                            .foregroundColor(.black)
+                            .background(Color.gray)
+                            .cornerRadius(20)
+                        }.padding(.all, 10)
+                    }
+                    
                     
                 }
                 
@@ -284,79 +300,7 @@ struct ContentView: View {
                     .rotationEffect(Angle(degrees: 45))
                     .edgesIgnoringSafeArea(.all)
             
-                VStack {
-                   
-                    HStack {
-                        VStack {
-                            Text("UUID: \(numbers)")
-                                .foregroundColor(.white)
-                            Text("Major: \(major)")
-                                .foregroundColor(.white)
-                            Text("Minor: \(minor)")
-                                .foregroundColor(.white)
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    
-                    Spacer()
-                    
-                    //Asks User for UUID
-                    Text("A UUID consists of 8 digits/letters - 4 digits/letters - 4 digits/letters - 4 digits/letters - 12 digits/letters (no spaces)")
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    HStack {
-                        Text("Enter a UUID:")
-                        TextField("ex. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", text: $numbers)
-                            .disableAutocorrection(true)
-                    }
-                    .padding()
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .cornerRadius(20)
-                       
-                    //Asks User for Major
-                    Text("A Major consists of a digit between 1 - 65,000")
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    HStack {
-                        Text("Enter a Major:")
-                        TextField("ex. xxxxx", text: $major)
-                            .disableAutocorrection(true)
-                    }
-                    .padding()
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .cornerRadius(20)
-                    
-                    //Asks user for Minor
-                    Text("A Minor consists of a digit between 1 - 65,000")
-                        .font(.footnote)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal)
-                    HStack {
-                        Text("Enter a Minor:")
-                        TextField("ex. xxxxx", text: $minor)
-                            .disableAutocorrection(true)
-                    }
-                    .padding()
-                    .font(.body)
-                    .foregroundColor(.white)
-                    .background(Color.gray)
-                    .cornerRadius(20)
-                    
-                    
-                    
-                Spacer()
-                    
-                }
+              
     
             }
                 //Third Tab Section
