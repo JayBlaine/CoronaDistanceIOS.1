@@ -16,6 +16,8 @@
 		977C16AE242FB29F005406A7 /* CoronaDistanceIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16AD242FB29F005406A7 /* CoronaDistanceIOSTests.swift */; };
 		977C16B9242FB29F005406A7 /* CoronaDistanceIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16B8242FB29F005406A7 /* CoronaDistanceIOSUITests.swift */; };
 		977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */; };
+		D970E46424302750009D7FA1 /* its-corona-time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D970E46324302750009D7FA1 /* its-corona-time.mp3 */; };
+		D970E46624302943009D7FA1 /* PlaySounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D970E46524302943009D7FA1 /* PlaySounds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		977C16B8242FB29F005406A7 /* CoronaDistanceIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaDistanceIOSUITests.swift; sourceTree = "<group>"; };
 		977C16BA242FB29F005406A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBeaconSetup.swift; sourceTree = "<group>"; };
+		D970E46324302750009D7FA1 /* its-corona-time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "its-corona-time.mp3"; sourceTree = "<group>"; };
+		D970E46524302943009D7FA1 /* PlaySounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySounds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +105,11 @@
 		977C1695242FB29D005406A7 /* CoronaDistanceIOS */ = {
 			isa = PBXGroup;
 			children = (
+				D970E46324302750009D7FA1 /* its-corona-time.mp3 */,
 				977C1696242FB29D005406A7 /* AppDelegate.swift */,
 				977C1698242FB29D005406A7 /* SceneDelegate.swift */,
 				977C169A242FB29D005406A7 /* ContentView.swift */,
+				D970E46524302943009D7FA1 /* PlaySounds.swift */,
 				977C16C6242FB59A005406A7 /* CLBeaconSetup.swift */,
 				977C169C242FB29F005406A7 /* Assets.xcassets */,
 				977C16A1242FB29F005406A7 /* LaunchScreen.storyboard */,
@@ -243,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D970E46424302750009D7FA1 /* its-corona-time.mp3 in Resources */,
 				977C16A3242FB29F005406A7 /* LaunchScreen.storyboard in Resources */,
 				977C16A0242FB29F005406A7 /* Preview Assets.xcassets in Resources */,
 				977C169D242FB29F005406A7 /* Assets.xcassets in Resources */,
@@ -272,6 +279,7 @@
 			files = (
 				977C1697242FB29D005406A7 /* AppDelegate.swift in Sources */,
 				977C1699242FB29D005406A7 /* SceneDelegate.swift in Sources */,
+				D970E46624302943009D7FA1 /* PlaySounds.swift in Sources */,
 				977C16C7242FB59A005406A7 /* CLBeaconSetup.swift in Sources */,
 				977C169B242FB29D005406A7 /* ContentView.swift in Sources */,
 			);
