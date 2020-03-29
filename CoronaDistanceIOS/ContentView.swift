@@ -24,7 +24,7 @@ didChange.send() to self.didChange.send()
 
 
 class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
-    var didChange = PassthroughSubject<Void, Never>()
+    var didChange = ObservableObjectPublisher()
     var locationManager: CLLocationManager?
     var lastDistance = CLProximity.unknown
     
@@ -119,29 +119,29 @@ struct ContentView: View {
                         
                         if self.searching {
                             playSound(sound: "its-corona-time", type: "mp3")
+                            
+                            if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
+                            {
+                             print("Test")
+                            //prompts the notification
+                                        let content = UNMutableNotificationContent()
+                                        content.title = "Oops I'm too close"
+                                        content.body = "Get away from him now! Doyou wabt to die or something?"
+                                        content.sound = .default
+                                        
+                                        let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+                                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                        
+                                        iBeaconNear = true
+                            }
+                             else {
+                                 iBeaconNear = false
+                             }
                         } else {
                             playSound(sound: "Silence", type: "mp3")
                             iBeaconNear = false
                         }
                             
-                        if self.searching {
-                            if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
-                           {	
-                           //prompts the notification
-                                       let content = UNMutableNotificationContent()
-                                       content.title = "Oops I'm too close"
-                                       content.body = "Get away from him now! Doyou wabt to die or something?"
-                                       content.sound = .default
-                                       
-                                       let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
-                                       UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                       
-                                       iBeaconNear = true
-                           }
-                            else {
-                                iBeaconNear = false
-                            }
-                        }
                         
                         if ((self.numbers == self.major) && (self.major == self.minor)) {
                             self.UUIDReady = false
