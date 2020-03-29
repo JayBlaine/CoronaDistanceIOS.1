@@ -21,8 +21,8 @@ class FeedParser: NSObject, XMLParserDelegate
         currentTitle = currentTitle.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
     }
-    public var currentDescription: String = ""
-        {
+    public currentDescription: String = ""
+    {
         didSet
         {
         currentDescription = currentDescription.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
@@ -34,12 +34,12 @@ class FeedParser: NSObject, XMLParserDelegate
         {
         currentPubDate = currentPubDate.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
         }
-    
+ 
     public var parserCompletion Handler: (([RSSItem]) -> Void)?
     }
 
     
-    func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void?
+    func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?)
         {
         self.parserCompletionHandler = completionHandler
         let request = URLRequest(url: URL(string: url)!)
@@ -104,7 +104,10 @@ class FeedParser: NSObject, XMLParserDelegate
         {
         print(parseError.localizedDescription)
         }
+
 }
+
+
 
 
 
