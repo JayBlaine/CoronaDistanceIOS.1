@@ -80,7 +80,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 struct ContentView: View {
     
-    @State private var selection = 1
+    @State private var selection = 0
     @State private var searching = false
     @State var numbers: String = ""
     @State var major: String = ""
@@ -106,10 +106,15 @@ struct ContentView: View {
                 
                 VStack {
                 
-                    Text("It's Corona Time")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .padding(.top, 10)
+                    HStack {
+                        Text("It's Corona Time")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundColor(.gray)
+                            .padding(.top, 10)
+                    
+                        Spacer()
+                    }.padding(.horizontal, 10)
                     
                     Spacer()
                     
