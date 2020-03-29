@@ -76,6 +76,7 @@ class FeedParser: NSObject, XMLParserDelegate
         
     func parser(_ parser: XMLParser, foundCharacters temp: String)
         {
+		/*
         switch currentElement
             {
             case "title": currentTitle += temp
@@ -85,6 +86,21 @@ class FeedParser: NSObject, XMLParserDelegate
             case "pubDate": currentPubDate += temp
             default: break
             }
+		*/
+		if currentElement == "title"
+			{
+				currentTitle += temp
+			}
+		else if currentElement == "description"
+			{ 
+				currentElement += temp
+			}
+		else if currentElement == "pubDate"
+			{
+				currentElement += temp
+			}
+		else
+		break
         }
         
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
