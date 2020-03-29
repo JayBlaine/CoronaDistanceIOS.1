@@ -18,32 +18,33 @@ class FeedParser: NSObject, XMLParserDelegate
     {
         didSet
         {
-        currentTitle = currentTitle.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
+        currentTitle = currentTitle.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
     var currentDescription: String = ""
     {
         didSet
         {
-        currentDescription = currentDescription.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
+        currentDescription = currentDescription.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
     var currentPubDate: String = ""
         {
         didSet
         {
-        currentPubDate = currentPubDate.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
+        currentPubDate = currentPubDate.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
- 
-    var parserCompletion Handler: (([RSSItem]) -> Void)?
     }
+    var parserCompletionHandler: (([RSSItem]) -> Void)?
+    
+
     
     func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?)
         {
         self.parserCompletionHandler = completionHandler
         let request = URLRequest(url: URL(string: url)!)
-        let urlSession = urlSession.shared
-        let task = urlSession,dataTask(with: request) { (data, response, error) in
+        let urlSession = URLSession.shared
+            let task = urlSession,dataTask(request) { (data, response, error) in
             guard let data = data
             else
                 {
@@ -146,13 +147,13 @@ class NewsTableViewController: UITableViewController
         
         func fetchData()
             {
-            
+             let feedParser = FeedParser()
             for n in 1...4
                 {
                 switch n
                     {
                     case 0:
-                        let feedParser.parseFeed(url: "http://rss.cnn.com/rss/cnn_health.rss"){ (rssItems) in
+                         feedParser.parseFeed(url: "http://rss.cnn.com/rss/cnn_health.rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -162,7 +163,7 @@ class NewsTableViewController: UITableViewController
                         }
             
                     case 1:
-                        let feedParser.parseFeed(url: "https://www.foxnews.com/about/rss"){ (rssItems) in
+                         feedParser.parseFeed(url: "https://www.foxnews.com/about/rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -172,7 +173,7 @@ class NewsTableViewController: UITableViewController
                         }
                         
                     case 2:
-                        let feedParser.parseFeed(url: "https://www.who.int/feeds/entity/csr/don/en/rss.xml"){ (rssItems) in
+                         feedParser.parseFeed(url: "https://www.who.int/feeds/entity/csr/don/en/rss.xml"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -182,7 +183,7 @@ class NewsTableViewController: UITableViewController
                         }
             
                     case 3:
-                        let feedParser.parseFeed(url: "https://tools.cdc.gov/api/v2/resources/media/403372.rss"){ (rssItems) in
+                         feedParser.parseFeed(url: "https://tools.cdc.gov/api/v2/resources/media/403372.rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
@@ -192,7 +193,7 @@ class NewsTableViewController: UITableViewController
                         }
             
                     case 4:
-                        let feedParser.parseFeed(url: "http://feeds.bbci.co.uk/news/health/rss.xml#"){ (rssItems) in
+                         feedParser.parseFeed(url: "http://feeds.bbci.co.uk/news/health/rss.xml#"){ (rssItems) in
                         self.rssItems = rssItems
                         
                         OperationQueue.main,addOperation
