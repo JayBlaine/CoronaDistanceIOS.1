@@ -1,4 +1,5 @@
 //Enter the class information here {
+
 import Foundation
 import UIKit
 
@@ -90,7 +91,7 @@ class FeedParser: NSObject, XMLParserDelegate
         {
         if elementName == "item"
             {
-            let rssItem = RSSItem(title: currentTitle, description: currentDescription, pubDate: currentPubDate)
+            let rssItem = RSSItem(title: currentTitle, description: currentDescription, pubdate: currentPubDate)
             self.rssItems.append(rssItem)
             }
         }
@@ -140,7 +141,7 @@ class NewsTableViewController: UITableViewController
         super.viewDidLoad()
         
         tableView.estimatedRowHeight = 155.0
-        tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.rowHeight = UITableView.automaticDimension
         
         fetchData()
         }
@@ -156,7 +157,7 @@ class NewsTableViewController: UITableViewController
                          feedParser.parseFeed(url: "http://rss.cnn.com/rss/cnn_health.rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
-                        OperationQueue.main,addOperation
+                            OperationQueue.main.addOperation
                             {
                             self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
                             }
@@ -166,7 +167,7 @@ class NewsTableViewController: UITableViewController
                          feedParser.parseFeed(url: "https://www.foxnews.com/about/rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
-                        OperationQueue.main,addOperation
+                            OperationQueue.main.addOperation
                             {
                             self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
                             }
@@ -176,7 +177,7 @@ class NewsTableViewController: UITableViewController
                          feedParser.parseFeed(url: "https://www.who.int/feeds/entity/csr/don/en/rss.xml"){ (rssItems) in
                         self.rssItems = rssItems
                         
-                        OperationQueue.main,addOperation
+                            OperationQueue.main.addOperation
                             {
                             self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
                             }
@@ -186,7 +187,7 @@ class NewsTableViewController: UITableViewController
                          feedParser.parseFeed(url: "https://tools.cdc.gov/api/v2/resources/media/403372.rss"){ (rssItems) in
                         self.rssItems = rssItems
                         
-                        OperationQueue.main,addOperation
+                            OperationQueue.main.addOperation
                             {
                             self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
                             }
@@ -196,7 +197,7 @@ class NewsTableViewController: UITableViewController
                          feedParser.parseFeed(url: "http://feeds.bbci.co.uk/news/health/rss.xml#"){ (rssItems) in
                         self.rssItems = rssItems
                         
-                        OperationQueue.main,addOperation
+                            OperationQueue.main.addOperation
                             {
                             self.tableView.reloadSections(IndexSet(integer: 0), with: .left)
                             }
@@ -261,8 +262,8 @@ class NewsTableViewController: UITableViewController
             didSet
                 {
                 titleLabel.text = item.title
-                descriptionLabel.text = item.Description
-                dateLabel.text = item.pubDate
+                descriptionLabel.text = item.description
+                dateLabel.text = item.pubdate
                 }
             }
         }
