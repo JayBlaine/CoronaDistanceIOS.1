@@ -7,71 +7,9 @@
 //
 
 
-import SwiftUI
-import SwiftyJSON
-import SDWebImageSwiftUI
-import WebKit
-import Foundation
+//import SwiftUI
 
-struct dataType : Identifiable {
-    var id : String
-    var title : String
-    var desc : String
-    var url : String
-    var image : String
-}
-
-class GetData : ObservableObject {
-    @Published var datas = [dataType]()
-    
-    init() {
-        let source = "https://newsapi.org/v2/top-headlines?q=covid&apiKey=a7e759e71fa0436b89b9d4c353a8f1f0"
-        
-        let url = URL(string: source)!
-        
-        let session = URLSession(configuration: .default)
-        
-        session.dataTask(with: url) { (data, _, err) in
-            if err != nil {
-                print((err?.localizedDescription)!)
-                return
-            }
-            
-            let json = try! JSON(data: data!)
-            
-            for i in json["articles"]{
-                let title = i.1["title"].stringValue
-                let description = i.1["description"].stringValue
-                let url = i.1["url"].stringValue
-                let img = i.1["urlToImage"].stringValue
-                let id = i.1["publishedAt"].stringValue
-                
-                DispatchQueue.main.async {
-                    self.datas.append(dataType(id: id, title: title, desc: description, url: url, image: img))
-                }
-                
-                
-                
-            }
-        }.resume()
-    }
-}
-
-struct webView : UIViewRepresentable {
-    
-    var url : String
-    func makeUIView(context: UIViewRepresentableContext<webView>) -> WKWebView {
-        
-        let view = WKWebView()
-        view.load(URLRequest(url: URL(string: url)!))
-        return view
-    }
-    
-    func updateUIView(_ uiView: WKWebView, context: UIViewRepresentableContext<webView>) {
-        
-    }
-}
-
+/*
 struct ContentView: View {
     var body: some View {
         
@@ -111,3 +49,4 @@ struct ContentView: View {
 //https://newsapi.org/v2/top-headlines?q=covid&apiKey=a7e759e71fa0436b89b9d4c353a8f1f0
 
 //a7e759e71fa0436b89b9d4c353a8f1f0
+*/
