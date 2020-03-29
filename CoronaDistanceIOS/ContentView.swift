@@ -385,10 +385,10 @@ struct ContentView: View {
                     Spacer()
                     
                     
-                        Text("Your UUID:")
-                            .font(.title)
-                            .foregroundColor(.gray)
-                            .bold()
+                    Text("Your UUID:")
+                        .font(.title)
+                        .foregroundColor(.gray)
+                        .bold()
                     
                     Text("35F9689E-21AF-444D-A700-B15f0C136804")
                         .font(.body)
@@ -398,18 +398,18 @@ struct ContentView: View {
                     Spacer()
                     
                     
-                        Text("Your Major: 12300")
-                            .font(.title)
-                            .foregroundColor(.gray)
-                            .bold()
+                    Text("Your Major: 12300")
+                        .font(.title)
+                        .foregroundColor(.gray)
+                        .bold()
                        
                     
                     Spacer()
                     
-                        Text("Your Minor: 45600")
-                            .font(.title)
-                            .foregroundColor(.gray)
-                            .bold()
+                    Text("Your Minor: 45600")
+                        .font(.title)
+                        .foregroundColor(.gray)
+                        .bold()
                         
                     
                     
