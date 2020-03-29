@@ -219,20 +219,21 @@ struct ContentView: View {
 							Button(action: {
 							@State var isShowingAlert = false
 								self.isShowingAlert.toggle()
-								})
-						.alert(isPresented: $isShowingAlert) { () -> Alert in
-							Alert(
-								title: Text("Alert"),
-								message: Text("This is an alert"),
-								dismissButton:
-							.default(
-								Text("OK"),
-								action: {
-									print("Dismissing alert")
-										}
+								
+								.alert(isPresented: $isShowingAlert) { () -> Alert in
+								Alert(
+									title: Text("Alert"),
+									message: Text("This is an alert"),
+									dismissButton:
+										.default(
+											Text("OK"),
+											action: {
+												print("Dismissing alert")
+											}
+										)
 									)
-								)
-						}.padding(.all, 10)	
+								}
+							})	
                     
 						/*
                             if(iBeaconNear == true) {
@@ -249,7 +250,7 @@ struct ContentView: View {
                             else if(iBeaconNear == false) {
                                 iBeaconNear = true
                             }
-							
+							*/
                          {
                           Text("Notification Test")
                             .font(.headline)
@@ -257,7 +258,7 @@ struct ContentView: View {
                             .foregroundColor(.black)
                             .background(Color.gray)
                             .cornerRadius(20)
-                        }*/
+                        }.padding(.all, 10)	
                     }
                     
                     
