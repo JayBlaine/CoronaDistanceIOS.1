@@ -54,7 +54,7 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         //Replace major/minor with user values, 123/456 PLACEHOLDER TODO
         //MAYBE MAKE !USER MAJOR/MINOR
         let beaconRegion = CLBeaconRegion(beaconIdentityConstraint: constraint, identifier: "Beacon")
-        
+
         locationManager?.startMonitoring(for: beaconRegion)
         locationManager?.startRangingBeacons(satisfying: constraint)
     }
