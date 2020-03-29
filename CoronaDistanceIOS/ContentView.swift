@@ -216,10 +216,10 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         
-							Button("A Button") {
-								var isShowingAlert = false
+							Button(action: {
+							@State var isShowingAlert = false
 								self.isShowingAlert.toggle()
-								}
+								})
 						.alert(isPresented: $isShowingAlert) { () -> Alert in
 							Alert(
 								title: Text("Alert"),
@@ -232,7 +232,7 @@ struct ContentView: View {
 										}
 									)
 								)
-						}		
+						}.padding(.all, 10)	
                     
 						/*
                             if(iBeaconNear == true) {
@@ -248,7 +248,7 @@ struct ContentView: View {
                             }
                             else if(iBeaconNear == false) {
                                 iBeaconNear = true
-                            }*/
+                            }
 							
                          {
                           Text("Notification Test")
@@ -257,7 +257,7 @@ struct ContentView: View {
                             .foregroundColor(.black)
                             .background(Color.gray)
                             .cornerRadius(20)
-                        }.padding(.all, 10)
+                        }*/
                     }
                     
                     
