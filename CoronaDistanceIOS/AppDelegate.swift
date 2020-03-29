@@ -49,7 +49,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 //change this to prompt on global variable change for beacon detection
 func locationManager(_ manager: CLLocationManager, iBeaconNear: Bool)
 		{
-			guard region is CLBeaconRegion else { return }
+			//ard region is CLBeaconRegion else { return }
 			if iBeaconNear
 			{
 			let content = UNMutableNotificationContent()
