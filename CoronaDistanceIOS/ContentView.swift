@@ -217,8 +217,8 @@ struct ContentView: View {
                         Spacer()
                         
                         Button(action: {
-						let alert = UIAlertController(title: "Oops", message: "Get away from him now! Do you want to get sick or something?", preferredStyle: UIAlertControllerStyle.alert)
-						alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                            let alert = UIAlertController(title: "Oops", message: "Get away from him now! Do you want to get sick or something?", preferredStyle: UIAlertController.Style.alert)
+                            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
 						self.present(alert, animated: true, completion: nil)
 						/*
                             if(iBeaconNear == true) {
