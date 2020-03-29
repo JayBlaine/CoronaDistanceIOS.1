@@ -151,31 +151,31 @@ struct ContentView: View {
                         
                         self.searching.toggle()
                         
-                        if self.searching {
-                            playSound(sound: "its-corona-time", type: "mp3")
-                            
-                            if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
-                            {
-                             print("Test")
-                            //prompts the notification
-                                        let content = UNMutableNotificationContent()
-                                        content.title = "Oops I'm too close"
-                                        content.body = "Get away from him now! Doyou wabt to die or something?"
-                                        content.sound = .default
-                                        
-                                        let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
-                                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                        
-                                        iBeaconNear = true
+                        if self.music {
+                            if self.searching {
+                                playSound(sound: "its-corona-time", type: "mp3")
+                            } else {
+                                playSound(sound: "Silence", type: "mp3")
                             }
-                             else {
-                                 iBeaconNear = false
-                             }
-                        } else {
-                            playSound(sound: "Silence", type: "mp3")
+                        }
+                        
+                        if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
+                        {
+                         print("Test")
+                        //prompts the notification
+                                let content = UNMutableNotificationContent()
+                                content.title = "Oops I'm too close"
+                                content.body = "Get away from him now! Doyou wabt to die or something?"
+                                content.sound = .default
+                                
+                                let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+                                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                
+                                iBeaconNear = true
+                        }
+                        else {
                             iBeaconNear = false
                         }
-                            
                         
                         if ((self.numbers == self.major) && (self.major == self.minor)) {
                             self.UUIDReady = false
@@ -232,9 +232,7 @@ struct ContentView: View {
                             }
                         )
                 )
-                        
-
-        
+                    
 						/*
                             if(iBeaconNear == true) {
                                 let content = UNMutableNotificationContent()
@@ -279,7 +277,7 @@ struct ContentView: View {
                 
                 Rectangle()
                     .edgesIgnoringSafeArea(.all)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 1.0))
                 
                 VStack {
                     
@@ -301,7 +299,7 @@ struct ContentView: View {
                             .font(.body)
                             .padding(.all, 15)
                             .foregroundColor(.black)
-                            .background(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 0.8))
+                            .background(Color.gray)
                             .cornerRadius(10)
                             .shadow(radius: 10)
                         }
@@ -333,7 +331,47 @@ struct ContentView: View {
                     .rotationEffect(Angle(degrees: 45))
                     .edgesIgnoringSafeArea(.all)
             
-              
+                VStack {
+                    
+                    Spacer()
+                    
+                    HStack {
+                        Text("Your UUID: \(numbers)")
+                            .font(.title)
+                            .foregroundColor(.gray)
+                            .bold()
+                        Spacer()
+                    }.padding(.horizontal, 10)
+                    
+                    HStack {
+                        Text("Your Major: \(major)")
+                            .font(.title)
+                            .foregroundColor(.gray)
+                            .bold()
+                        Spacer()
+                    }.padding(.horizontal, 10)
+                    
+                    HStack {
+                        Text("Your Minor: \(minor)")
+                            .font(.title)
+                            .foregroundColor(.gray)
+                            .bold()
+                        Spacer()
+                    }.padding(.horizontal, 10)
+                    
+                    Spacer()
+                    
+                    Toggle(isOn: $music) {
+                        Text("Corona Music")
+                            .bold()
+                    }
+                    .font(.title)
+                    .foregroundColor(.gray)
+                    .padding(30)
+                    
+                    Spacer()
+                    
+                }
     
             }
                 //Third Tab Section
