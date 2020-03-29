@@ -217,6 +217,10 @@ struct ContentView: View {
                         Spacer()
                         
                         Button(action: {
+						let alert = UIAlertController(title: "Oops", message: "Get away from him now! Do you want to get sick or something?", preferredStyle: UIAlertControllerStyle.alert)
+						alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+						self.present(alert, animated: true, completion: nil)
+						/*
                             if(iBeaconNear == true) {
                                 let content = UNMutableNotificationContent()
                                 content.title = "Oops I'm too close"
@@ -230,7 +234,8 @@ struct ContentView: View {
                             }
                             else if(iBeaconNear == false) {
                                 iBeaconNear = true
-                            }
+                            }*/
+							
                         }) {
                           Text("Notification Test")
                             .font(.headline)
