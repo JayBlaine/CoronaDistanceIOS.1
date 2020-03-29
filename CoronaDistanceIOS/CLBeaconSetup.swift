@@ -18,33 +18,33 @@ class FeedParser: NSObject, XMLParserDelegate
     {
         didSet
         {
-        currentTitle = currentTitle.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
+        currentTitle = currentTitle.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
     var currentDescription: String = ""
     {
         didSet
         {
-        currentDescription = currentDescription.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
+        currentDescription = currentDescription.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
     }
     var currentPubDate: String = ""
         {
         didSet
         {
-        currentPubDate = currentPubDate.trimmingCharacters(in: characterSet.whitespacesAndNewlines)
+        currentPubDate = currentPubDate.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         }
- 
-    var parserCompletion Handler: (([RSSItem]) -> Void)?
     }
+    var parserCompletionHandler: (([RSSItem]) -> Void)?
+    
 
     
     func parseFeed(url: String, completionHandler: (([RSSItem]) -> Void)?)
         {
         self.parserCompletionHandler = completionHandler
         let request = URLRequest(url: URL(string: url)!)
-        let urlSession = urlSession.shared
-        let task = urlSession,dataTask(with: request) { (data, response, error) in
+        let urlSession = URLSession.shared
+            let task = urlSession,dataTask(request) { (data, response, error) in
             guard let data = data
             else
                 {
