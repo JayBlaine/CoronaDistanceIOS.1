@@ -181,6 +181,7 @@ struct ContentView: View {
     @State var UUIDReady: Bool = false
     @State var music: Bool = true
     @State private var isShowingAlert = false
+    @ObservableObject var list = getData()
 
     var body: some View {
         TabView(selection: $selection){
