@@ -50,7 +50,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 func locationManager(_ manager: CLLocationManager, iBeaconNear: Bool)
 		{
 			//ard region is CLBeaconRegion else { return }
-			if iBeaconNear
+			if iBeaconNear == true
 			{
 			let content = UNMutableNotificationContent()
 			content.title = "Oops"
