@@ -88,6 +88,7 @@ class FeedParser: NSObject, XMLParserDelegate
             default: break
             }
 		
+        }
         
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?)
         {
