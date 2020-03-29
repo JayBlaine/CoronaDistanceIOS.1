@@ -47,10 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: CLLocationManagerDelegate {
 //prompts the notification based on action "didEnterRegion"
 //change this to prompt on global variable change for beacon detection
-func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLBeaconRegion)
+func locationManager(_ manager: CLLocationManager, iBeaconNear: Bool)
 		{
 			guard region is CLBeaconRegion else { return }
-			
+			if iBeaconNear
+			{
 			let content = UNMutableNotificationContent()
 			content.title = "Oops"
 			content.body = "You're too close to another person "
@@ -58,7 +59,9 @@ func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLBeac
 			
 			let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
 			UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-		}
+			}
+	}
+		
 }
 
 
