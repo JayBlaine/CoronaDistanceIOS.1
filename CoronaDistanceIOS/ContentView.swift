@@ -68,12 +68,12 @@ class BeaconDetector: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func advertiseDevice(region : CLBeaconRegion) {
+  /*  func advertiseDevice(region : CLBeaconRegion) {
         let peripheral = CBPeripheralManager.self
         let peripheralData = region.peripheralData(withMeasuredPower: nil)
             
-        peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
-    }
+       // peripheral.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
+    }  */
     
         
     func update(distance: CLProximity) {
@@ -212,6 +212,21 @@ struct ContentView: View {
                     }
                     
                     Spacer()
+                    
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                         //add code
+                        }) {
+                          Text("Notification Test")
+                            .font(.headline)
+                            .padding(.all, 20)
+                            .foregroundColor(.black)
+                            .background(Color.gray)
+                            .cornerRadius(20)
+                        }.padding(.all, 10)
+                    }
                     
                     
                 }
