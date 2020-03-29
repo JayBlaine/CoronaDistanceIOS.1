@@ -127,6 +127,9 @@ struct ContentView: View {
                         if self.searching {
                             if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
                            {
+						   (void)locationManager:(CLLocationManager *)manager
+								didEnterRegion:(CLBeaconRegion *)region
+								
                            //prompts the notification
                                        let content = UNMutableNotificationContent()
                                        content.title = "Oops I'm too close"
