@@ -119,30 +119,30 @@ struct ContentView: View {
                         
                         if self.searching {
                             playSound(sound: "its-corona-time", type: "mp3")
-                            
-                            if self.searching {
-                                if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
-                               {
-                               //prompts the notification
-                                           let content = UNMutableNotificationContent()
-                                           content.title = "Oops I'm too close"
-                                           content.body = "Get away from him now! Doyou wabt to die or something?"
-                                           content.sound = .default
-                                           
-                                           let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
-                                           UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                           
-                                           iBeaconNear = true
-                               }
-                                else {
-                                    iBeaconNear = false
-                                }
-                            }
                         } else {
                             playSound(sound: "Silence", type: "mp3")
                             iBeaconNear = false
                         }
                             
+                        if self.searching {
+                            if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
+                           {
+                           //prompts the notification
+                                       let content = UNMutableNotificationContent()
+                                       content.title = "Oops I'm too close"
+                                       content.body = "Get away from him now! Doyou wabt to die or something?"
+                                       content.sound = .default
+                                       
+                                       let request = UNNotificationRequest(identifier: "Close", content: content, trigger: nil)
+                                       UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                       
+                                       iBeaconNear = true
+                           }
+                            else {
+                                iBeaconNear = false
+                            }
+                        }
+                    
                         if self.searching {
                             if ((self.detector.lastDistance == .near) || (self.detector.lastDistance == .immediate))
                            {
