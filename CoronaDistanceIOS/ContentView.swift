@@ -176,6 +176,7 @@ struct ContentView: View {
     @ObservedObject var detector = BeaconDetector()
     @State var music: Bool = true
     @State private var isShowingAlert = false
+	@State private var isShowingAlert2 = false
     @ObservedObject var list = GetData()
 
     var body: some View {
@@ -272,7 +273,7 @@ struct ContentView: View {
                     HStack {
                         
                         Button(action: {
-                            self.isShowingAlert = true
+                            self.isShowingAlert2 = true
                             
                         }) {
                                   Text("Get Information")
@@ -282,7 +283,7 @@ struct ContentView: View {
                                     .background(Color.gray)
                                     .cornerRadius(20)
                         }
-						.alert(isPresented: $isShowingAlert) {
+						.alert(isPresented: $isShowingAlert2) {
 								Alert(title: Text("Info"), message: Text("This was was created to help practice social distancing and to promote social awareness during the CoronaVirus Pandemic. Press the Button to start practicing Social Distancing today!(If you wish to turn off the music go to the Settings tab and switch music off)"), dismissButton: .default(Text("Got it!")))
 									
 									
