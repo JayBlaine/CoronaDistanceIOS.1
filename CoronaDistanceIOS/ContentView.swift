@@ -174,11 +174,7 @@ struct ContentView: View {
     
     @State private var selection = 0
     @State private var searching = false
-    @State var numbers: String = ""
-    @State var major: String = ""
-    @State var minor: String = ""
     @ObservedObject var detector = BeaconDetector()
-    @State var UUIDReady: Bool = false
     @State var music: Bool = true
     @State private var isShowingAlert = false
     @ObservedObject var list = GetData()
@@ -198,6 +194,7 @@ struct ContentView: View {
                     .foregroundColor(Color(red: 85/255, green: 85/255, blue: 85/255, opacity: 0.8))
                     .rotationEffect(Angle(degrees: 45))
                     .edgesIgnoringSafeArea(.all)
+                    
                 
                 VStack {
                 
@@ -241,12 +238,6 @@ struct ContentView: View {
                         }
                         else {
                             iBeaconNear = false
-                        }
-                        
-                        if ((self.numbers == self.major) && (self.major == self.minor)) {
-                            self.UUIDReady = false
-                        } else if ( self.numbers != "" ) {
-                            self.UUIDReady = true
                         }
                         
                         }) {
@@ -396,7 +387,7 @@ struct ContentView: View {
                     Spacer()
                     
                     HStack {
-                        Text("Your UUID: \(numbers)")
+                        Text("Your UUID:")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
@@ -404,7 +395,7 @@ struct ContentView: View {
                     }.padding(.horizontal, 10)
                     
                     HStack {
-                        Text("Your Major: \(major)")
+                        Text("Your Major:")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
@@ -412,7 +403,7 @@ struct ContentView: View {
                     }.padding(.horizontal, 10)
                     
                     HStack {
-                        Text("Your Minor: \(minor)")
+                        Text("Your Minor:")
                             .font(.title)
                             .foregroundColor(.gray)
                             .bold()
