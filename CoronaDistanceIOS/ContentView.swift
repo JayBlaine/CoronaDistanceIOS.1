@@ -216,7 +216,7 @@ struct ContentView: View {
                     HStack {
                         Spacer()
                         
-							Button(Button("A Button") {
+							Button("A Button") {
 
 								self.isShowingAlert.toggle()
 								}
@@ -229,9 +229,10 @@ struct ContentView: View {
 								Text("OK"),
 								action: {
 									print("Dismissing alert")
-                            }
-                        )
-                )
+										}
+									)
+								)
+						}		
                     
 						/*
                             if(iBeaconNear == true) {
@@ -249,7 +250,7 @@ struct ContentView: View {
                                 iBeaconNear = true
                             }*/
 							
-                        }) {
+                         {
                           Text("Notification Test")
                             .font(.headline)
                             .padding(.all, 20)
